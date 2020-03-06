@@ -1,3 +1,3 @@
-- Getting started
+- **Getting started**
   - [Introduction](/)
   - [Project](/project)
