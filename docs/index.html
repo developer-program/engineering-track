@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Engineering Track Guides</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+      name="description"
+      content="ThoughtWorks GovTech Engineering Track Guides"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+
+    <!-- Icons -->
+    <link rel="icon" href="_media/favicon.ico" />
+    <link rel="apple-touch-icon" href="_media/apple-touch-icon.png" />
+
+    <!-- Theme: Simple -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css"
+    />
+
+    <!-- Theme customizations-->
+    <style>
+      :root {
+        --code-theme-text: maroon;
+        --sidebar-width: 20rem;
+        --content-max-width: 70em;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script src="//unpkg.com/docsify-edit-on-github/index.js"></script>
+    <script defer src="//unpkg.com/docsify/lib/docsify.min.js"></script>
+    <script defer src="https://unpkg.com/docsify-copy-code@2"></script>
+    <script defer src="//unpkg.com/docsify/lib/plugins/emoji.min.js"></script>
+    <script defer src="//unpkg.com/docsify/lib/plugins/search.min.js"></script>
+
+    <!-- docsify-themeable (latest v0.x.x) -->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/docsify-themeable@0"
+    ></script>
+    <script>
+      function footerPlugin(hook) {
+        const year = new Date(Date.now()).getFullYear();
+        const footerContent = [
+          "<hr/>",
+          "<footer>",
+          "<span>&copy; " + year + " - </span>",
+          "<span>Content developed at ThoughtWorks</span>",
+          "</footer>"
+        ].join("");
+
+        hook.afterEach(function(html) {
+          return html + footerContent;
+        });
+      }
+
+      const documentBase =
+        "https://github.com/thoughtworks-jumpstart/guides/tree/master/docs/";
+
+      window.$docsify = {
+        auto2top: true,
+        name: "Engineering Track",
+        repo: "https://github.com/developer-program/engineering-track",
+        coverpage: false,
+        loadSidebar: true,
+        subMaxLevel: 2,
+        search: {paths: "auto"},
+        copyCode: {
+          buttonText: "Copy",
+          errorText: "Error",
+          successText: "Copied"
+        },
+        plugins: [
+          footerPlugin,
+          EditOnGithubPlugin.create(documentBase, "", "📝 Edit this page")
+        ]
+      };
+    </script>
+  </body>
+</html>
