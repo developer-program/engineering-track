@@ -19,3 +19,40 @@ In this 6-week program trainees will learn concepts of software engineering and 
 This 6-week program will start on 11 April 2020 and end on 12 June 2020.
 
 Program schedule can be viewed [here](https://github.com/developer-program/engineering-track/projects/1). Please note that the schedule is subject to change.
+
+## Program outline
+
+### Agile software delivery
+
+- Agile manifesto
+- Agile methodologies
+- Agile ceremonies
+- User stories
+- Estimation
+- Prioritization
+- Retrospective
+- Feedback
+
+### Software testing
+
+- Test pyramid
+- Test driven development
+- End-to-end testing
+
+### Improving software design
+
+- Object-oriented programming
+- Design patterns
+- Clean code
+- Refactoring
+
+### DevOps
+
+- Continuous integration
+- Continuous delivery
+- Continuous deployment
+
+### Security
+
+- Web application security
+- OWASP vulnerabilities
