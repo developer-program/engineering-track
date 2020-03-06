@@ -13,3 +13,16 @@ All trainees must already be familiar with both frontend and backend application
 This 6-week program will start on 11 April 2020 and end on 12 June 2020.
 
 Program schedule can be viewed [here](https://github.com/developer-program/engineering-track/projects/1). Please note that modules are subject to change.
+
+## Project
+
+Apartments and Residential Management System (Arms) comprises of:
+
+- a frontend application built in React
+- a RESTful API service built in Express and connected to a MongoDB datastore
+
+### Accessing the project repositories
+
+For trainees to gain access to the project repositories you must first be added to the [Engineering Track](https://github.com/orgs/developer-program/teams/engineering-trainees) team. 
+
+Provide your instructors with your GitHub handles and they will invite you to the team. 
