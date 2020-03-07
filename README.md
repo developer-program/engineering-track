@@ -14,7 +14,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- markdownlint-disable -->
 <table>
   <tr>
-    <td align="center"><a href="https://jsstrn.me/"><img src="https://avatars2.githubusercontent.com/u/1199611?v=4" width="100px;" alt=""/><br /><sub><b>Jesstern Rays</b></sub></a><br /><a href="#content-jsstrn" title="Content">🖋</a></td>
+    <td align="center"><a href="https://jsstrn.me/"><img src="https://avatars2.githubusercontent.com/u/1199611?v=4" width="100px;" alt=""/><br /><sub><b>Jesstern Rays</b></sub></a><br /><a href="#content-jsstrn" title="Content">🖋</a> <a href="https://github.com/developer-program/engineering-track/commits?author=jsstrn" title="Documentation">📖</a> <a href="#example-jsstrn" title="Examples">💡</a> <a href="#ideas-jsstrn" title="Ideas, Planning, & Feedback">🤔</a></td>
   </tr>
 </table>
 
