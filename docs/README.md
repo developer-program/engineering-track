@@ -16,7 +16,7 @@ In this 6-week program trainees will learn concepts of software engineering and 
 
 ## Program schedule
 
-This 6-week program will start on 11 April 2020 and end on 12 June 2020.
+This 6-week program will start on 11 May 2020 and end on 19 June 2020.
 
 Program schedule can be viewed [here](https://github.com/developer-program/engineering-track/projects/1). Please note that the schedule is subject to change.
 
