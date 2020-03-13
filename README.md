@@ -13,6 +13,8 @@ Program schedule can be viewed [here](https://github.com/developer-program/engin
 
 ## Contributors ✨
 
+Read how you can [contribute](https://github.com/developer-program/engineering-track/blob/master/CONTRIBUTING.md) to the program. 
+
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
