@@ -4,7 +4,7 @@
   "description": "Software Engineering Guide",
   "main": "index.js",
   "scripts": {
-    "start": "docsify serve docs --open=true --port=4000"
+    "start": "docsify serve docs --open=true --port=4001"
   },
   "dependencies": {
     "docsify-cli": "^4.4.0"
