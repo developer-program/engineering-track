@@ -7,3 +7,5 @@
   - [What is Bamboo](/bamboo/introduction)
   - [Install Bamboo on Mac](/bamboo/installation)
   - [Install Bamboo on EC2](/bamboo/installationRemote)
+  - [Creating a Plan](/bamboo/creating-a-project.md)
+  - [Creating a build agent](/bamboo/build-agent.md)
