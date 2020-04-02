@@ -16,6 +16,7 @@
   - [What is Docker](docker/what-is-docker.md)
   - [Install Docker](docker/installing-docker.md)
   - [Docker Basics](docker/docker-basics.md)
+  - [Building Image](docker/build-image.md)
   
 - **AWS**
 
