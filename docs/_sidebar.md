@@ -13,7 +13,10 @@
   - [Design Patterns](software-designs/design-patterns)
 
 - **Docker**
-
+  - [What is Docker](docker/what-is-docker.md)
+  - [Install Docker](docker/installing-docker.md)
+  - [Docker Basics](docker/docker-basics.md)
+  
 - **AWS**
 
 - **Kubernetes**
