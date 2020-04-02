@@ -2,11 +2,23 @@
   - [Introduction](/)
   - [Project](/project)
 
+- **Agile**
+
+- **E2E test**
+
 * **Software Designs**
   - [Programming Paradigm](software-designs/programming-paradigm)
   - [Object-oriented Programming](software-designs/object-oriented-programming)
   - [Design Principles](software-designs/design-principles)
   - [Design Patterns](software-designs/design-patterns)
+
+- **Docker**
+
+- **AWS**
+
+- **Kubernetes**
+
+- **Terraform**
 
 - **Continuous Integration with Bamboo**
   - [CI & CD](/bamboo/intro-ci-cd)
