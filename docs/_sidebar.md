@@ -17,7 +17,8 @@
   - [Install Docker](docker/installing-docker.md)
   - [Docker Basics](docker/docker-basics.md)
   - [Building Image](docker/build-image.md)
-  - [Building Image](docker/running-multiple-images.md)
+  - [Docker Compose](docker/running-multiple-images.md)
+  - [Docker Volume](docker/docker-volume.md)
   
 - **AWS**
 
