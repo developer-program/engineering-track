@@ -1,10 +1,15 @@
 - **Getting started**
+
   - [Introduction](/)
   - [Project](/project)
 
 - **Agile**
 
-- **E2E test**
+- **Cypress Test**
+  - [Intro to Cypress](cypress/intro.md)
+  - [Installation](cypress/installation.md)
+  - [Folder Structure](cypress/folder-structure.md)
+  - [First Test](cypress/hello-world.md)
 
 * **Software Designs**
   - [Programming Paradigm](software-designs/programming-paradigm)
@@ -13,13 +18,14 @@
   - [Design Patterns](software-designs/design-patterns)
 
 - **Docker**
+
   - [What is Docker](docker/what-is-docker.md)
   - [Install Docker](docker/installing-docker.md)
   - [Docker Basics](docker/docker-basics.md)
   - [Building Image](docker/build-image.md)
   - [Docker Compose](docker/running-multiple-images.md)
   - [Docker Volume](docker/docker-volume.md)
-  
+
 - **AWS**
 
 - **Kubernetes**
@@ -27,6 +33,7 @@
 - **Terraform**
 
 - **Continuous Integration with Bamboo**
+
   - [CI & CD](/bamboo/intro-ci-cd)
   - [What is Bamboo](/bamboo/introduction)
   - [Install Bamboo on Mac](/bamboo/installation)
@@ -35,4 +42,3 @@
   - [Creating a build agent](/bamboo/build-agent.md)
 
 - **Security**
-
