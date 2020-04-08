@@ -10,6 +10,8 @@
   - [Installation](cypress/installation.md)
   - [Folder Structure](cypress/folder-structure.md)
   - [First Test](cypress/hello-world.md)
+  - [Selectors](cypress/selectors.md)
+  - [Interactions and Matchers](cypress/interactions-&-matchers.md)
 
 * **Software Designs**
   - [Programming Paradigm](software-designs/programming-paradigm)

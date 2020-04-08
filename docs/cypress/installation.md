@@ -42,7 +42,7 @@ Cypress.json
 
 ```JSON
 {
-	"ignoreTestFiles": "examples/*.js",
+	"ignoreTestFiles": "**/examples/*.js",
 }
 ```
 
