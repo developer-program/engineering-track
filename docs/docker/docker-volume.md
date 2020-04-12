@@ -6,15 +6,17 @@ This is especially useful if you want a Docker container to persist data (e.g. i
 ## Running a test using Docker Container
 
 Say we want to run a test file:
+
 ```javascript
 describe("test", () => {
-    it("1 is 1", () => {
-        expect(1).toBe(1);
-    })
+  it("1 is 1", () => {
+    expect(1).toBe(1);
+  });
 });
 ```
 
 In `package.json`:
+
 ```json
 "scripts": {
   "test": "jest --watchAll"
@@ -34,7 +36,7 @@ We can run the test in a Docker container by overwriting the default command.
    ```
 4. The test should run successfully
 
-## Tagging a Docker image
+### Tagging a Docker image
 
 The previous example runs, but it is troublesome to copy the image ID before we can run the test. As such,
 we can add a tag to the built image, which allow us to reference the image by its tag name.
@@ -46,7 +48,7 @@ $ docker run -it unit-test npm run test
 
 The above example tags the built image as `unit-test`.
 
-## Volume
+### Problem! Watch mode is no longer working
 
 Next we can look at what happens when we change our test case.
 
@@ -56,7 +58,9 @@ to the default `watch` mode by jest.
 The reason why the test didn't re-run when we update it is due to the fact that the `watch` mode is watching the files
 _within_ the container but not the files on your local system that you have modified.
 
-We can solve that by adding a Docker Volume which maps the container directory to your working directory.
+## Volume
+
+To have our test rerun during updates. We need Docker to look at the files we are changing rather than the copy that was copied into the container. Docker Volume which maps the container directory to your working directory.
 
 ```sh
 $ docker build -t unit-test .
@@ -80,6 +84,7 @@ the container. To do so, add another flag `-it -v /app/node_modules`. This tells
 dependencies, refer to the `node_modules` folder _in_ the container.
 
 The full command will be:
+
 ```sh
 $ docker build -t unit-test .
 $ docker run -it -v /app/node_modules -v $(pwd):/app unit-test npm run test
@@ -99,3 +104,11 @@ volumes:
   - /app/node_modules
   - .:/app
 ```
+
+## Lab
+
+Update the `docker-compose.yml` from the Docker Compose Lab.
+
+1.  In the MongoDB, use a storage in your local system rather than on local container. Tips: the database file are store in `/data/db`
+2.  In both React and Express App, when updating the test file should retrigger test running in watch mode.
+3.  In both React and Express App, updating source file should updates the Server with the latest content.
