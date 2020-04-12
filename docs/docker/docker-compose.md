@@ -9,6 +9,7 @@ spin the containers up in a single command.
 
 Although Docker Compose is a separate program from docker, the installation typically come together.
 To check if Docker Compose is installed:
+
 ```sh
 $ docker-compose version
 docker-compose version 1.25.4
@@ -19,6 +20,7 @@ You should see the Docker Compose version printed out.
 ## Running a single service with Docker Compose
 
 1. Using the react app as an example, create a `docker-compose.yml` as such:
+
    ```yml
    version: "3.7"
    services:
@@ -29,6 +31,7 @@ You should see the Docker Compose version printed out.
    ```
 
 2. Run the command
+
    ```sh
    $ docker-compose up
    ```
@@ -39,10 +42,10 @@ You should see the Docker Compose version printed out.
 
 The `version` in the docker-compose file refers to the standard for the `compose file format`.
 
-|Compose file format|Docker Engine release|
-|-------------------|---------------------|
-|3.7                |18.06.0+             |
-|3.6                |18.02.0+             |
+| Compose file format | Docker Engine release |
+| ------------------- | --------------------- |
+| 3.7                 | 18.06.0+              |
+| 3.6                 | 18.02.0+              |
 
 ### Services
 
@@ -65,7 +68,6 @@ build:
 ### Ports
 
 The `ports` option takes in an array of ports that we want to connect from our computer to the container.
-
 
 ## Network
 
@@ -95,16 +97,18 @@ services:
 
 ## Common docker-compose commands
 
-|Command                    |Description           |
-|---------------------------|----------------------|
-|`docker-compose up`        |Runs all docker images|
-|`docker-compose up -d`     |Runs all docker images in background|
-|`docker-compose up --build`|Builds all docker images then runs all docker images|
-|`docker-compose down`      |Stops all images created by `docker-compose up`|
-|`docker-compose ps`        |Looks for running containers created by docker-compose in current directory|
+| Command                     | Description                                                                 |
+| --------------------------- | --------------------------------------------------------------------------- |
+| `docker-compose up`         | Runs all docker images                                                      |
+| `docker-compose up -d`      | Runs all docker images in background                                        |
+| `docker-compose up --build` | Builds all docker images then runs all docker images                        |
+| `docker-compose down`       | Stops all images created by `docker-compose up`                             |
+| `docker-compose ps`         | Looks for running containers created by docker-compose in current directory |
 
 ## Lab
 
-Create a `Dockerfile` and `docker-compose.yml` for your frontend application.
+Continue from the docker image lab, you should have created a Dockerfile for the React and Express app. Create a docker-compose file and replace the implementation.
 
-
+1. Create a `docker-compose.yml` that runs a MongoDB instance
+2. Add configuration to run the Express app on the docker-compose file
+3. Add configurations to run React on the docker-compose file
