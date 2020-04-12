@@ -1,32 +1,37 @@
 # Install Docker
 
-## Installing Docker on MacOS
+## Install Docker on MacOS
 
-1. goto [hub.docker.com](https://hub.docker.com/editions/community/docker-ce-desktop-mac/)
-2. select download for mac
-3. Create account
-4. Select "Get Docker"
-5. Open and move to application
-6. Open Docker
+System Requirements:
+1. macOS must be version 10.13 or newer, i.e. High Sierra (10.13), Mojave (10.14) or Catalina (10.15)
+2. Mac hardware must be a 2010 or a newer model
 
-```sh
+Steps:
+1. Go to [Docker Desktop for Mac](https://hub.docker.com/editions/community/docker-ce-desktop-mac/)
+2. Select "Get Docker"
+3. Open **Docker.dmg** and move to Applications
+4. Open Docker
+5. Create Docker account via [dockerhub](https://hub.docker.com/?&utm_medium=account_create)
 
-```
 
+##  Install Docker Desktop on Windows
 
-##  Installing Docker Desktop on Windows
-
-System requirements(min):
+System Requirements:
 1. 64 bit processor with Second Level Address Translation (SLAT)
 2. 4GB system RAM
 
-Install docker in (hub.docker.com)[https://hub.docker.com/editions/community/docker-ce-desktop-windows/]
+Steps:
+1. Go to [Docker Desktop for Windows](https://hub.docker.com/editions/community/docker-ce-desktop-windows)
+2. Select "Get Docker"
+3. Run the **Docker Desktop Installer.exe**
+4. Open Docker
+5. Create Docker account via [dockerhub](https://hub.docker.com/?&utm_medium=account_create)
 
-Installation includes Docker Engine, Docker CLI client, Docker Compose, Notary, Kubernetes, and Credential Helper.
+Note that installation includes Docker Engine, Docker CLI client, Docker Compose, Notary, Kubernetes, and Credential Helper.
 
 
-## Verifying Docker is installed
+## Verify Docker is installed
 ```sh
-docker --version
-docker run hello-world
+$ docker --version
+$ docker run hello-world
 ```

@@ -1,29 +1,47 @@
 # What is Docker
 
-Docker is a software that helps you to create, maintain and connect different containers. Docker is pretty much the standard of using containers today. There is probably more people recognising the term docker more than containers. 
+[Docker](https://www.Docker.com/) is a software that helps you to create, maintain and connect different containers.
+Docker is pretty much the standard of using containers today. In fact, there is probably more people recognising
+the term "Docker" than "container".
 
-Container is a technology that package a software with all it's dependencies so that you can easily run the software in a standalone, isolated environment. 
+Container is a technology that packages a software with all its dependencies so that you can easily run the software
+in a standalone and isolated environment.
 
 
-## Why do we want to use Docker or Container
+## Why use Docker or containers
 
 ### Dependencies
 
-When you run a container using docker, all the dependencies would be isolated inside the container. This means that you will have all the dependencies without require to install all the dependencies pacakage yourself. Things like installing java before oracle database or python for another software. 
+When you run a container using Docker, all the dependencies would be included and isolated inside the container.
+This means that you will have all the dependencies readily available without the need to install all the them yourself.
+For example, things like installing Java before Oracle database or installing Python for another software.
 
-Allowing Docker to maintain your dependencies also comes with another benefit. When you require multiple versions of the same software(phython2, phython3.6.9, python3.8), mapping the environment variable for different application that required different version of the same software can be a nightmare. Docker isolate the dependenices meaning that you don't have to take care of it.
+Allowing Docker to maintain your dependencies comes with another benefit. When you require multiple versions of
+the same software (e.g. python2, python3.6.9, python3.8), mapping the environment variables for different applications
+that require different versions of the same software can be a nightmare. Docker isolates the dependenices,
+meaning that you don't have to take care of it.
 
-Beside that, you can also version your docker images, this means that as you build your software and change your dependencies, you still will not have problem going back to run a older version of your software. Imagine if you update the dependencies to run a new version of the software and later realise that you need to roll back. You might have to downgrade your dependencies. Running in Docker will safe you from all these issue.
+Besides that, you can also version your Docker images. This means that as you build your software and
+change your dependencies, you will not have any problem rolling back to an older version of your software.
+Imagine if you have updated the dependencies to run a new version of the software, but later realise that
+you need to roll back. You might need to downgrade your dependencies in order to roll back.
+Running in Docker saves you from all these issues.
 
 ### Portability
-Using docker hub, we can publish our images and reuse the images in anywhere, any system that you can run docker on. Docker is currently supported on Lunux, macOS and windows meaning that most docker images can run container. 
+Using [Docker hub](https://hub.Docker.com/), we can publish our Docker images and reuse the images anywhere,
+i.e. any system that you can run Docker on. Docker is currently supported on Linux, macOS and Windows,
+meaning that most Docker images can run on any system.
 
 ### Security
 
-By Isolating the dependencies, if there are any dependencies that tries to access our local files. The Isolation will prevent any internal application from accessing the files and folders running in our machine. We typically map a port from our computer to docker container and only allow infomation to pass thru within the port. 
+If there are any dependencies trying to access our local files, the isolation of dependencies in the Docker image will
+prevent any Dockerized application from accessing the files and folders running in our machine. We typically map a port
+from our machine to the Docker container and only allow information to pass through within the port.
 
 ### Ecosystem
 
-The popularity of Docker makes cloud providers such as AWS and GCP gives great support for docker containers. You can easily run docker containers on AWS and GCP. 
+The popularity of Docker makes cloud providers, such as [AWS](https://aws.amazon.com/) and [GCP](https://cloud.google.com/),
+give great support for Docker containers. You can easily run Docker containers on AWS and GCP.
 
-Technologies such as kUbernetes can helps or orchestrate docker containers allowing them to scale when necessary. 
+Technologies such as [Kubernetes](https://kubernetes.io/) can also help or orchestrate Docker containers,
+allowing them to scale when necessary.

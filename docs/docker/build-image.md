@@ -1,62 +1,68 @@
 # Building Image
 
-Using existing images built by other developers is great but if we want to create our own server that run our own code. We will need to build our own image. Let's create our own image. 
+Using existing images built by other developers is great, but if we want to create our own server that
+runs our own code, we will need to build our own image. Let's create our own image.
 
-## Creating a hello world image
-Our software requires some environment to run in. We can do that by running 
+## Create a hello world image
+Our software requires some environment to run in. Let's start with Ubunutu.
 
-1. Create a file name `Dockerfile`
-```dockerfile
-FROM ubuntu
+Do the following to create an image and run it in a container:
 
-CMD ["echo", "hello world"]
-```
+1. Create a file, named `Dockerfile`, with the following content
+   ```dockerfile
+   FROM ubuntu
 
-2. run `docker build .` which will output 
+   CMD ["echo", "hello world"]
+   ```
 
-```sh
-Successfully built a00cc775fd4b
-```
+2. Build the image by running the `docker build .` command, which will output
+   ```sh
+   $ docker build .
+   Successfully built a00cc775fd4b
+   ```
+   Note that the alphanumeric characters generated refers to the image ID.
 
-the alphanumeric characters generated is the image id
+3. Using the newly built image, run a container, which will print the "hello world" message.
+   ```
+   $ docker run a00cc775fd4b
+   hello world
+   ```
 
-3. Using the newly build image. Run a container
+In the `Dockerfile`, we started with `FROM ubuntu`. The `FROM` keyword allows us to specify a base image to start from.
+The `CMD` keyword refers to the commands to run. As such, the `echo hello world` command is run right after the
+container is spun up.
 
-`docker run a00cc775fd4b`
+Congratulations, you have created your first image and run it successfully!
 
-this will result in the hello world message from printed.
+## Install software dependencies
 
-```sh
-hello world
-```
+In the previous example, we have used `echo` which is a built-in program that comes with Ubuntu. Most OS or base images
+will not have everything we need to run our software. Similar to setting up a server in any machine, we will have to
+specify and install the required dependencies. Docker allows us to do that using the `RUN` keyword in Dockerfile.
 
-In the example above, we created our first image. 
-We started with `FROM ubuntu`, the FROM keyword allow us to specify a base image to start from.
-Follow by `CMD ["echo", "hello world"]` which runs the command right after the container is created. 
+Ubuntu by default does not come with the `ping` command. Let's create a Dockerfile that can `ping` for us.
 
-Congrats, we have created first docker image and run it.
+1. Create a Dockerfile with the following content
+   ```dockerfile
+   FROM ubuntu
 
-## Installing software dependencies
+   RUN apt-get update -y
+   RUN apt-get install iputils-ping -y
 
-The above example use echo, a buildin program that comes with Ubuntu. Most OS or base image will not have everything we need to run our software. Similar to setting up a server in any machine, we will have to specifiy and install the dependencies. Docker allow us to do that using the `RUN` keyword in dockerfile.
+   CMD ["ping", "www.google.com"]
+   ```
 
-Ubuntu by default does not come with `ping`. Let's create a docker file that can do `ping` for us.
+2. Build the image
+   ```sh
+   $ docker build .
+   ```
 
-```Dockerfile
-FROM ubuntu
-
-RUN apt-get update -y
-RUN apt-get install iputils-ping -y
-
-CMD ["ping", "www.google.com"]
-```
-
-- build the file `docker build .`
-- run the file `docker run <image id>`
-
-```sh
-64 bytes from sc-in-f147.1e100.net (74.125.68.147): icmp_seq=1 ttl=37 time=12.8 ms
-64 bytes from sc-in-f147.1e100.net (74.125.68.147): icmp_seq=2 ttl=37 time=12.6 ms
-64 bytes from sc-in-f147.1e100.net (74.125.68.147): icmp_seq=3 ttl=37 time=15.2 ms
-64 bytes from sc-in-f147.1e100.net (74.125.68.147): icmp_seq=4 ttl=37 time=15.8 ms
-```
+3. Using the newly built image, run a container
+   ```sh
+   $ docker run <image id>
+   64 bytes from sc-in-f147.1e100.net (74.125.68.147): icmp_seq=1 ttl=37 time=12.8 ms
+   64 bytes from sc-in-f147.1e100.net (74.125.68.147): icmp_seq=2 ttl=37 time=12.6 ms
+   64 bytes from sc-in-f147.1e100.net (74.125.68.147): icmp_seq=3 ttl=37 time=15.2 ms
+   64 bytes from sc-in-f147.1e100.net (74.125.68.147): icmp_seq=4 ttl=37 time=15.8 ms
+   ```
+   You should see the `ping` response.
