@@ -39,18 +39,21 @@ The caret orientation is 2 different elements. By toggling the `display` value b
 
 The only thing changes in the caret are the CSS property so that is what we are going to test.
 
+We look for the MORE button, to have sibling elements, we need to navigate back to the parent and use `find` to find one matching element. Then we use `.should("have.css", "display")` to check if the style is applied,
+
 ```js
-    cy.get(".w3-bar")
-      .contains("MORE")
-      .parent()
-      .find(".fa-caret-down")
-      .should("have.css", "display")
-      .should("eq", "none");
-    cy.get(".w3-bar")
-      .contains("MORE")
-      .parent()
-      .find(".fa-caret-up")
-      .should("have.css", "display")
-      .should("eq", "inline");
-  });
+cy.get(".w3-bar")
+	.contains("MORE")
+	.parent()
+	.find(".fa-caret-down")
+	.should("have.css", "display")
+	.should("eq", "none");
+
+cy.get(".w3-bar")
+	.contains("MORE")
+	.parent()
+	.find(".fa-caret-up")
+	.should("have.css", "display")
+	.should("eq", "inline");
+});
 ```
