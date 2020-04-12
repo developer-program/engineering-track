@@ -12,6 +12,7 @@
   - [First Test](cypress/hello-world.md)
   - [Selectors](cypress/selectors.md)
   - [Interactions and Matchers](cypress/interactions-&-matchers.md)
+  - [Handling Inputs](cypress/handling-inputs.md)
 
 * **Software Designs**
   - [Programming Paradigm](software-designs/programming-paradigm)
