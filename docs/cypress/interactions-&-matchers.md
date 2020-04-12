@@ -57,3 +57,29 @@ cy.get(".w3-bar")
 	.should("eq", "inline");
 });
 ```
+
+## Lab
+
+1. Create a new cypress project and complete the workflow below
+
+```js
+describe("Lazada", () => {
+  it("visit website", () => {
+    cy.visit("https://www.lazada.sg/");
+  });
+
+  it("click on 'Electronic Devices'", () => {});
+
+  it("click on 'Tablets'", () => {});
+
+  it("select Apple tablets", () => {});
+
+  it("select an iPad Pro", () => {});
+
+  it("select 64GB Size", () => {});
+
+  it("add item to Cart", () => {});
+
+  it("should be able to see login page", () => {});
+});
+```
