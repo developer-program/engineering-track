@@ -17,7 +17,7 @@ The main file you will be working on. All your test file will be here. Feel free
 
 ## Plugins
 
-codes that extends cypress functionality
+codes that extend cypress functionality
 
 ## Support
 
@@ -27,4 +27,4 @@ Commands.js is where you can add common utility functions that you will use it o
 
 ### index.js
 
-This is where you put code that you want run before any other test, if you need to clean up some files or setup data.
+This is where you put code that you want to run before any other test if you need to clean up some files or setup data.

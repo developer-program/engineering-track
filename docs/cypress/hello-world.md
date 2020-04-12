@@ -5,7 +5,7 @@ Create a new file
 
 If you have cypress open, you should see the file in the left runnable window.
 
-1. First add a describe block like in jest
+1. First, add a describe block like in jest
 
 ```js
 describe("My First Test", () => {});
@@ -29,7 +29,7 @@ it("should render title", () => {
 
 ![test runner](_media/findWhoIsNext.png)
 
-## Moving the url out to the environment variable
+## Moving the URL out to the environment variable
 
 There are various ways to add environment variables in cypress.
 The easiest is thru package.json
@@ -42,11 +42,11 @@ Modify the `cy:open` script in package.json
 
 To run cypress on test/prod environment, all we need to do is change the host.
 
-If you have lots of other environment variable, you can also choose to set them in a `cypress.env.json` file. Remmeber to add this file in `.gitignore` and document in Readme.md to help new developers setup their machine.
+If you have lots of other environment variables, you can also choose to set them in a `cypress.env.json` file. Remember to add this file in `.gitignore` and document in Readme.md to help new developers set up their machine.
 
 In cypress.env.json
 
-```json
+```JSON
 {
   "host": "http://localhost:3000"
 }
@@ -54,4 +54,4 @@ In cypress.env.json
 
 ## Lab
 
-1. Using your personal project, find write a cypress test that visit
+1. Using your personal project, write a cypress test that visits localhost in the application and look for the title of the website.

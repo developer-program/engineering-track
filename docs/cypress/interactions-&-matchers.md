@@ -2,7 +2,8 @@
 
 ## Interaction
 
-Cypress provide us with common capabilities to interact with the elements allow us to click, drag, hover and scroll elements.
+Cypress provides us with common capabilities to interact with the elements allow us to click, drag, hover and scroll elements.
+In this example, we going to use [w3school learn html](https://www.w3schools.com/html/default.asp) website as an example.
 
 ## Clicking on the More button
 
@@ -16,13 +17,13 @@ cy.get(".w3-bar").contains("MORE").click();
 
 ## Expecting changes
 
-By default, when we select elements, cypress will already throw error if the element cannot be found. Cypress allow us to do more detail checking using the `should` command.
+By default, when we select elements, cypress will already throw an error if the element cannot be found. Cypress allows us to do more detail checking using the `should` command.
 
-When the MORE button is clicked, a navigation for tutorial will appear. The carot icon beside the more will also be inverted. If we want to test the behavior of this.
+When the MORE button is clicked, navigation for the tutorial will appear. The caret icon beside the more will also be inverted. If we want to test the behaviour of this.
 
 ![nav-tutorial](_media/nav-tutorial.png)
 
-First we can test that the tutorial appear.
+First, we can test that the tutorial appear.
 
 ```js
 cy.get("#nav_tutorials");
@@ -34,9 +35,9 @@ We can also test only one tutorial appears. The `should` command allowing us to 
 cy.get("#nav_tutorials").should((nav) => expect(nav).to.have.length(1));
 ```
 
-The caret orientation are actually 2 different elements. By toggling the `display` value between `inline` and `none`, it creatings the toggling effect.
+The caret orientation is 2 different elements. By toggling the `display` value between `inline` and `none`, it creates the toggling effect.
 
-The only thing changes in the caret is the css property so that is what we are going to test.
+The only thing changes in the caret are the CSS property so that is what we are going to test.
 
 ```js
     cy.get(".w3-bar")
@@ -51,5 +52,5 @@ The only thing changes in the caret is the css property so that is what we are g
       .find(".fa-caret-up")
       .should("have.css", "display")
       .should("eq", "inline");
-	});
+  });
 ```

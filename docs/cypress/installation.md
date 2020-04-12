@@ -1,6 +1,6 @@
 # Installation
 
-## clone repo
+## clone the repo
 
 We typically maintain our cypress test in our UI repo.
 
@@ -10,7 +10,7 @@ git clone repo
 
 ## Install Cypress
 
-The easiest way to isnstall cypress is treating it as a developer dependencies
+The easiest way to install cypress is treating it as a developer dependencies
 
 ```sh
 npm i -D cypress
@@ -42,7 +42,7 @@ Cypress.json
 
 ```JSON
 {
-	"ignoreTestFiles": "**/examples/*.js",
+  "ignoreTestFiles": "**/examples/*.js",
 }
 ```
 
@@ -58,7 +58,7 @@ Now all examples files should be ignored
 
 We will need to let eslint know we are using cypress and support the syntax.
 
-First install eslint-plugin-cypress
+First, install eslint-plugin-cypress
 
 ```sh
 npm install eslint-plugin-cypress --save-dev
@@ -77,3 +77,9 @@ Append the following config in `eslint.json`
   "plugins": ["cypress"],
 }
 ```
+
+# Lab1
+
+1. Create a new project folder, install and run Cypress example files
+2. Configure Cypress to ignore test in the examples
+3. Set Up eslint and check there are no more eslint errors related to cypress
