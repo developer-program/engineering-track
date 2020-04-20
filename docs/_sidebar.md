@@ -31,6 +31,12 @@
 
 - **AWS**
 
+  - [Cloud Computing](aws/cloud-computing.md)
+  - [Introduction](aws/intro.md)
+  - [Creating Account](aws/account.md)
+  - [Identity and Access Management](iam.md)
+  - [EC2](aws/ec2.md)
+
 - **Kubernetes**
 
 - **Terraform**
