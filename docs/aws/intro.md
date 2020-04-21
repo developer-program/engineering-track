@@ -6,7 +6,7 @@ AWS is an on-demand cloud computing platoforms.
 
 ## Covers
 
-The intent of the materials is to focus on fundamental concepts of AWS to build a strong foundation. You will need to study more materials to become a skilled Devops or more likely chance of passing the AWS developer Associate exam.
+The intent of the materials is to focus on fundamental concepts of AWS to build a strong foundation to startoff a career in software developement. We wil not cover all AWS services and you will need to study more materials to become a skilled Devops or to pass the AWS developer Associate exam.
 
 ## Brief History
 
