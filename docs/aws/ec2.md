@@ -108,3 +108,124 @@ At additional cost, you can rent an ip address and assign to a EC2 instance. Whe
 2. Connect to it using SSH
 3. Stop the instance and start the instance again
 4. SSH to the instance again by changing the public IP
+
+## Run React on AWS
+
+### Nginx
+
+1. Install Nginx
+
+```sh
+sudo amazon-linux-extras install nginx1.12
+```
+
+2. Starting Nginx
+
+```sh
+sudo systemctl start nginx
+```
+
+By default Nginx give a startup page. Try hitting the the ip address on the browser and realise that nothing is loaded.
+
+3. Update Security Group
+
+Currently we cannot access the nginx webpage because we are blocking incoming traffic to our EC2 instance. To allow incoming traffic, we need to add inbound rules
+
+![security group](_media/security_group.png)
+
+after adding the security rule, you should see the nginx page.
+
+![nginx welcome](_media/nginx_welcome.png)
+
+### React
+
+1. Install git
+
+```sh
+sudo yum install git
+```
+
+```sh
+git --version
+git version 2.23.1
+```
+
+2. Git Clone Repo
+
+```sh
+sudo git clone <react-repo>
+```
+
+3. Install node
+
+Detailed instructions can be found in [aws-developer-guide](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/setting-up-node-on-ec2-instance.html)
+
+Download Node Version Manager(nvm)
+
+```sh
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
+```
+
+Activate nvm
+
+```sh
+. ~/.nvm/nvm.sh
+```
+
+Install Node version 12(or the latest LTS version in future)
+
+```sh
+nvm install v12
+```
+
+Verify installation
+
+```sh
+node -v
+v12.16.2
+```
+
+4. Install and test React package
+
+```sh
+npm install
+npm run build
+npx serve -s build
+```
+
+if you have error regarding node not found, this might be because sudo resets its bath on debian based machine for securty reasons.
+
+```sh
+sudo env PATH=$PATH npm install
+sudo env PATH=$PATH run build
+npx serve -s build
+```
+
+Now go to `<public ip>:<port>`, example, `http://54.169.47.122:5000`, you should see your app running.
+
+5. Stop Nginx
+
+```sh
+sudo systemctl stop nginx
+```
+
+6. MV React file to Nginx hosting folder
+
+```sh
+sudo mv -f <path to react project>/build/* /usr/share/nginx/html/
+```
+
+7. Start Nginx
+
+```sh
+sudo systemctl start nginx
+```
+
+8. Remove unnecessary port from security group
+
+![security group](_media/security_group.png)
+
+## Lab 2
+
+1. Publish an React app on port 80 in the EC2 instance you created
+2. Publish an Express app on a different EC2 instance.
