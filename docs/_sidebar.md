@@ -38,6 +38,7 @@
   - [Elastic Cloud Compute](aws/ec2.md)
   - [Elastic Load Balancer](aws/elb.md)
   - [Auto Scaling Group](aws/asg.md)
+  - [Simple Storage Service](aws/s3.md)
 
 - **Kubernetes**
 
