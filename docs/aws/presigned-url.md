@@ -12,7 +12,7 @@ npm install aws-sdk
 
 ## Autheticating the SDK
 
-We probably don't want anyone to be able to upload images in our bucket and we also probably don't want our application to have more permission than the application can do to prevent unforseen misused of the permission. To do so, the applicaiton need to be able to autheticate itself with limited amount of permission.
+We do not want anyone other than applications assigned by us to upload images into our bucket. We also do not want our application to contain more permission than it can do to prevent misued. To do so, our application will need the right amount of permission.
 
 The SDK requries a `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY`. `AWS_ACCESS_KEY_ID` helps to identify the user and the permission the user have and the `AWS_SECRET_ACCESS_KEY` autheticates the user.
 
@@ -43,7 +43,10 @@ Besure to select the bucket using the arn for `bucket` and `object`.
 
 ### Getting presigned Url
 
-The available actions are all listed in the AWS SDK Documentation. Be sure to look for language specific documentation. Here we will be using NodeJs and specifically the `getSignedUrl` api. [documentation](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/S3.html#getSignedUrl-property)
+The AWS SDK Documentation contains all available actions that we can use. Different language will have different SDK and documentation, be sure to look at the correct documentation.
+
+We will be using NodeJs `getSignedUrl`. 
+[documentation](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/S3.html#getSignedUrl-property)
 
 Below we are only suporting png image. If we want to get a presignedUrl with dynamic image type, we will have to know the `ContentType` before hand and pass in the filename and content type as arguments.
 
@@ -127,3 +130,5 @@ Take note that you should not allow `localhost` in anything than the developer e
 
 1. Extend the previously created pokemon gallery to display pokemon cards from express with images link from S3.
 2. Create a seperate route on react, in it there should be input box that allow you to create your own pokemon and attach a image to S3. The image should come back as a card in pokemon gallery
+
+![s3 demo](_media/s3_demo.gif)
