@@ -1,20 +1,20 @@
 # What is AWS
 
-platform.AWS is an on-demand cloud computing
+AWS is an on-demand cloud computing
 
 [Intro Video](https://youtu.be/a9__D53WsUs)
 
 ## Covers
 
-AWS, to build a strong foundation to start off a career in software development. We will not cover all AWS services and you will need to study a lot more materials to become a skilled Dev Ops or to pass the AWS developer Associate exam. The intent of the materials is to focus on fundamental concepts of
+The intent of the materials is to focus on fundamental concepts of the most common AWS services to start off a career in software development. We will not cover all AWS services and you will need to study a lot more materials to become a skilled Dev Ops or to pass the AWS developer Associate exam.
 
 ## Brief History
 
 - 2002, launch AWS internally
-  - Amazon Leadership team acknowledge that the company has aA strong Infrastructure that backed the success of Amazon.
+- Amazon Leadership team acknowledge that the company has a strong Infrastructure that backed the success of Amazon.
 - Talks about the possibility for AWS to make these infrastructures available to Everyone. 2003.
 - 2006, launch of Simple Storage Service, Elastic Computer Cloud and Simple Queue Service.
-  - CloudFront. Setup partnership with Netflix and Reddit and later NASA. 2009, launch S3 and EC2 in 22 regions. Offer AWS
+- CloudFront. Setup partnership with Netflix and Reddit and later NASA. 2009, launch S3 and EC2 in 22 regions. Offer AWS.
 - 2014, have 1.4 million servers in 28 availability zone.
 
 ## Servers around the world
