@@ -1,49 +1,49 @@
 # What is AWS
 
-AWS is an on-demand cloud computing platoforms.
+platform.AWS is an on-demand cloud computing
 
 [Intro Video](https://youtu.be/a9__D53WsUs)
 
 ## Covers
 
-The intent of the materials is to focus on fundamental concepts of AWS to build a strong foundation to startoff a career in software developement. We wil not cover all AWS services and you will need to study more materials to become a skilled Devops or to pass the AWS developer Associate exam.
+AWS, to build a strong foundation to start off a career in software development. We will not cover all AWS services and you will need to study a lot more materials to become a skilled Dev Ops or to pass the AWS developer Associate exam. The intent of the materials is to focus on fundamental concepts of
 
 ## Brief History
 
 - 2002, launch AWS internally
-- 2003, Amazon Leadership team acknowledge that the companies sucuess is backed by a strong Infrastucutre. They talked about the possiblility for AWS to make these infrastucutre available to Everyone.
+  - Amazon Leadership team acknowledge that the company has aA strong Infrastructure that backed the success of Amazon.
+- Talks about the possibility for AWS to make these infrastructures available to Everyone. 2003.
 - 2006, launch of Simple Storage Service, Elastic Computer Cloud and Simple Queue Service.
-- 2009, launch S3 and EC2 in 22 regions. Offer AWS CloudFront. Setup partnership with Netflix and Reddit and later NASA.
+  - CloudFront. Setup partnership with Netflix and Reddit and later NASA. 2009, launch S3 and EC2 in 22 regions. Offer AWS
 - 2014, have 1.4 million servers in 28 availability zone.
 
 ## Servers around the world
 
-AWS have servers around the world. You will have to choose where to host your application. Selection is based on Region and Availability Zone.
+You have the option to choose where to host your application. You can select by Region and Availability Zone. AWS have servers around the world.
 
 ### Region
 
-Location in a specific part of the world where it will contains different availablty zones. Think of it as a Cluster of Datacenters located geographically near each other.
+A Region contains different availability zones. A Region contains data centers located geographically near to each other.  When a major failure happens due with the region, a disruption of one region is highly unlikely to affect another.
 
-Each Region is isloated from one another meaning that a major failure within a region will not affect any region.
+In AWS, all instances will belong to a region.
 
-In AWS, all your instances are tied to a region.
+Examples of Region code:
 
-- Singapore ap-southeast-1
-- Sydney ap-sourtheast-2
-- Oregon us-west-2
+- Singapore: `ap-southeast-1`
+  - Sydney: `ap-southeast-2`
+- Oregon: `us-west-2`
 
 ### Availability Zone
 
-A Data Center which contain servers.
-Each availability zone is Identify by the region code follow by letter.
+An availability zone can be think of as a data center. Each AZ is identifiable by the region code follow by letter.
 
-Availablity Zone in Singapore(ap-southeast-1)
+Availability Zone in Singapore(ap-southeast-1)
 
 - ap-southeast-1a
 - ap-southeast-1b
 - ap-southeast-1c
 
-[Find available Regions here](https://aws.amazon.com/about-aws/global-infrastructure/regions_az/)
+[Find Regions here](https://aws.amazon.com/about-aws/global-infrastructure/regions_az/)
 
 ## Comparing to other IAAS
 

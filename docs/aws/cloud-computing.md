@@ -15,7 +15,7 @@ The practice of using a network of remote servers hosted on the Internet to stor
 - High wastage, your server might need to handle the maximum load possible, say supermarket will spike during before a pandemic situation lockdown. You will need lots of powerful servers to handle the load and they will be mostly idle during non-peak period.
 - High maintenance, your server need to be up to date with the latest security update.
 
-![server-mess](_media/server_mess.png)
+![server-mess](_media/cloud_servermess.png)
 
 ## Benefits of using Cloud Computing
 
