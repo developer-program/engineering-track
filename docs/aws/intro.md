@@ -30,7 +30,7 @@ In AWS, all instances will belong to a region.
 Examples of Region code:
 
 - Singapore: `ap-southeast-1`
-  - Sydney: `ap-southeast-2`
+- Sydney: `ap-southeast-2`
 - Oregon: `us-west-2`
 
 ### Availability Zone
