@@ -1,8 +1,8 @@
 # Identify and Access Management
 
-Enable you to manage access to AWS services and resources securely - AWS
+Enable you to manage access to AWS services and resources securely
 
-[IAM intro Video](https://youtu.be/Ul6FW4UANGc)
+[IAM introduction video](https://youtu.be/Ul6FW4UANGc)
 
 ## Terminology
 
@@ -16,11 +16,11 @@ Instances(example EC2) or AWS services that have permission to do actions on you
 
 ### Permissions
 
-Specify if an user, role, group can access a AWS resouce and to what extent(Read, Write)
+Specify if an user role, the group can access an AWS resource and to what extent (Read, Write)
 
 ### Policy
 
-A grouping of permissions. There are already default Managed Policies, commonly used policy, that aws created for you to use.
+A grouping of permissions. There are already default Managed Policies, commonly used policy, that AWS created for you to use.
 
 ### Groups
 
@@ -30,9 +30,9 @@ A set of policies/permission that affects multiple users by assigning users to t
 
 ![change signin link](_media/customise_signin_link.png)
 
-To seperate your AWS management console and other's AWS management console, IAM users will have to go to the signin link. The signin link is represented by a 12 digit number which makes it distinct and hard to remember. To make it easier for your users, we would typically create an alias for the number. This alias also needs to be unique.
+To separate your AWS management console and other's AWS management console, IAM users will have to go to the sign-in link. A 12 digit number represents the sign-in link, makes it distinct and hard to remember. To make it easier for your users, we would typically create an alias for the number. This alias also needs to be unique.
 
-Note that signin as IAM users and Root uses a different link.
+Note that signing in as IAM users and Root uses a different link.
 
 Take note that
 
@@ -44,13 +44,13 @@ When you first create an AWS account, Amazon recommends you to follow certain be
 
 ### Delete your root access keys
 
-By default you don't have a root access key. A root access key is a key that allows you to autheticate yourself as a root user and allow the key holder to do anything to your account. Is highly discouraged to have one.
+By default, you don't have a root access key. A root access key is a key that allows you to authenticate yourself as a root user and allow the key holder to do anything to your account. By default, there is no root access key, and you should not create one.
 
 ### Activate MFA on your root account
 
 We can set up multiple factor authentication. AWS supports virtual MFA device or [U2F](https://www.yubico.com/authentication-standards/fido-u2f/) Security key.
 
-We can use a Virtual MFA Applicatins. If you don't have one already, I will recommend the Google Autheticator. Download Google Autheticator on your ios or android device. Click on + and Scan Bar Code. Following the instructions to get the 2 MFA code to finish setup.
+We can use a Virtual MFA applications. If you don't have one already, I will recommend the Google Autheticator. Download Google Autheticator on your IOS or android device. Click on + and Scan Bar Code. Following the instructions to get the 2 MFA code to finish setup.
 
 - Authy
 - Duo Mobile
@@ -58,27 +58,27 @@ We can use a Virtual MFA Applicatins. If you don't have one already, I will reco
 - Microsoft Authenticator
 - Google Authenticator
 
-If you are in an environment you cannot have access to your phone. Request your organisation to get you a U2F key. They are easily available from [Amazon](https://www.amazon.com/stores/page/8E6D7A52-6F69-4A70-A07B-4168A9FD33B0?ingress=0&visitId=4e887182-a088-465f-a4b3-b9f1b06da6a1&channel=SLP_FW_21D9BC02-6DFF-4BD7-A77F-4AE207A2AEFD&liveVideoDataUrl=https://amazonlive-portal.amazon.com/v2). Make sure you don't loose your key.
+If you are in an environment, you cannot have access to your phone. Request your organisation to get you a U2F key. They are easily available from [Amazon](https://www.amazon.com/stores/page/8E6D7A52-6F69-4A70-A07B-4168A9FD33B0?ingress=0&visitId=4e887182-a088-465f-a4b3-b9f1b06da6a1&channel=SLP_FW_21D9BC02-6DFF-4BD7-A77F-4AE207A2AEFD&liveVideoDataUrl=https://amazonlive-portal.amazon.com/v2). Make sure you don't lose your key.
 
 ### Create individual IAM users
 
-Amazon recommmend you not to use the root account for day to day operations. Instead create a new IAM user(Even for Admin)
+Amazon recommend you not to use the root account for day-to-day operations. Instead, create a new IAM user (Even for Admin)
 
-To create an admin user, simply create a new user and attach the "AdministratorAccess" Policy to user.
+To create an admin user, create a new user and attach the "AdministratorAccess" Policy to the user.
 
 We can tag users based on their job title to organise and search for them easily.
 
 ### Use groups to assign permissions
 
-To better organise our users, we can create a group to give the same policies to users that works on similar task. I.e. Admins, Develoepers, ProductOwners.
+To better organise our users, we can create a group to give the same policies to users that work on a similar task. I.e. admins, developers, product owners.
 
-Previously we created a Admin User, After creating the group, under the "Groups" tab > "Group Actions" dropdown, we can add users to the group.
+Previously we created an admin User, After creating the group, under the "Groups" tab > "Group Actions" drop-down, we can add users to the group.
 
 ### Apply an IAM password policy
 
 We can enforce a certain strictness to the password our IAM users create. Select "Set Password policy".
 
-[wikihow - create a password](https://www.wikihow.com/
+[WikiHow - create a password](https://www.wikihow.com/
 Create-a-Password-You-Can-Remember)
 
 Or even better, use a password manager and use it to generate a strong password.
@@ -94,20 +94,20 @@ Give specific user level such as `List`, `Read`, `Write`, `Permissions managemen
 ### Do not share access key
 
 - don't share credentials between uses
-- do not check in your access key to any repository such as github
+- do not check in your access key to any repository such as GitHub
 - paste your access key and credentials anywhere or to any other users
 
 ### Rotate Credentials Regularly
 
-- change your password regularly. Once in every 3 months or more/less frequent depends on how secure you need it to be.
+- change your password regularly. Once in every 3 months or more/less frequent depends on how secure, you need it to be.
 
 ### Remove Unused Credentials
 
-- once the user leave an organisation or done with the key. Update IAM and remove all users and/or polcies that are no longer necessary
+- once the user leaves an organisation or done with the key. Update IAM and remove all users and/or policies that are no longer necessary.
 
 ### IAM Web Identify Federation
 
-You can setup cooperate SAML to allow IAM users to AWS account. This is not a devops course so it way out of context.
+You can set up cooperate SAML to allow IAM users to AWS account. As this is not a dev ops course, is out of context.
 
 ### More on Best Practices
 
@@ -115,4 +115,4 @@ You can setup cooperate SAML to allow IAM users to AWS account. This is not a de
 
 ## Lab
 
-Setup your own AWS account, you can create an email account and use to create an AWS account if you don't want to keep one.
+Setup your own AWS account, you can create an email account and used to create an AWS account if you don't want to keep one.
