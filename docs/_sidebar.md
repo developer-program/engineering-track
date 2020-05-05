@@ -34,6 +34,16 @@
   - [AWS databases](aws/databases.md)
   - [Vitural Private Cloud](aws/vpc.md)
 
+- **Docker**
+
+  - [What is Docker](docker/what-is-docker.md)
+  - [Install Docker](docker/installing-docker.md)
+  - [Docker Basics](docker/docker-basics.md)
+  - [Building Image](docker/build-image.md)
+  - [Docker Compose](docker/docker-compose.md)
+  - [Docker Volume](docker/docker-volume.md)
+  - [Elastic Containter Service](docker/aws-ecs.md)
+
 - **Continuous Integration with Bamboo**
 
   - [CI & CD](/bamboo/intro-ci-cd)
@@ -43,15 +53,6 @@
   - [Creating a Plan](/bamboo/creating-a-project.md)
   - [Creating a build agent](/bamboo/build-agent.md)
 
-- **Docker**
+* **Kubernetes**
 
-  - [What is Docker](docker/what-is-docker.md)
-  - [Install Docker](docker/installing-docker.md)
-  - [Docker Basics](docker/docker-basics.md)
-  - [Building Image](docker/build-image.md)
-  - [Docker Compose](docker/docker-compose.md)
-  - [Docker Volume](docker/docker-volume.md)
-
-- **Kubernetes**
-
-- **Security**
+* **Security**
