@@ -1,9 +1,7 @@
 - **Getting started**
 
   - [Introduction](/)
-  - [Project](/project)
-
-- **Agile**
+  <!-- - [Project](/project) -->
 
 - **Cypress Test**
   - [Intro to Cypress](cypress/intro.md)
@@ -46,13 +44,16 @@
 
 - **Continuous Integration with Bamboo**
 
-  - [CI & CD](/bamboo/intro-ci-cd)
-  - [What is Bamboo](/bamboo/introduction)
-  - [Install Bamboo on Mac](/bamboo/installation)
-  - [Install Bamboo on EC2](/bamboo/installationRemote)
-  - [Creating a Plan](/bamboo/creating-a-project.md)
-  - [Creating a build agent](/bamboo/build-agent.md)
+  - [CI & CD](bamboo/intro-ci-cd)
+  - [What is Bamboo](bamboo/introduction)
+  - [Install Bamboo on Mac](bamboo/installation)
+  - [Install Bamboo on EC2](bamboo/installationRemote)
+  - [Creating a Plan](bamboo/creating-a-project.md)
+  - [Creating a build agent](bamboo/build-agent.md)
 
 * **Kubernetes**
+
+- **Agile**
+  - [Project Definition](agile/project-fly.md)
 
 * **Security**
