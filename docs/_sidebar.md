@@ -12,14 +12,18 @@
   - [Interactions and Matchers](cypress/interactions-&-matchers.md)
   - [Handling Inputs](cypress/handling-inputs.md)
 
-* **Software Designs**
+* **Software Design**
   - [Programming Paradigm](software-designs/programming-paradigm)
   - [Object-oriented Programming](software-designs/object-oriented-programming)
+  - [Advanced OOP](software-designs/advanced-oop)
   - [Design Principles](software-designs/design-principles)
   - [Design Patterns](software-designs/design-patterns)
 
-- **AWS Basics**
+- **Delivering software**
+  - [Clean code](delivering-software/clean-code)
+  - [Refactoring](delivering-software/refactoring)
 
+- **AWS Basics**
   - [Cloud Computing](aws/cloud-computing.md)
   - [Introduction](aws/intro.md)
   - [Creating Account](aws/creating-account.md)
