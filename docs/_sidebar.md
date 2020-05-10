@@ -20,10 +20,12 @@
   - [Design Patterns](software-designs/design-patterns)
 
 - **Delivering software**
+
   - [Clean code](delivering-software/clean-code)
   - [Refactoring](delivering-software/refactoring)
 
 - **AWS Basics**
+
   - [Cloud Computing](aws/cloud-computing.md)
   - [Introduction](aws/intro.md)
   - [Creating Account](aws/creating-account.md)
