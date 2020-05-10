@@ -52,30 +52,6 @@ npm i -D cypress
 npm run cy:open
 ```
 
-## ESLINT
-
-We will need to let eslint know we are using cypress and support the syntax.
-
-First, install eslint-plugin-cypress
-
-```sh
-npm install eslint-plugin-cypress --save-dev
-```
-
-Append the following config in `eslint.json`
-
-```JSON
-{
-  "env": {
-    "cypress/globals": true
-  },
-  "extends": [
-    "plugin:cypress/recommended"
-  ],
-  "plugins": ["cypress"],
-}
-```
-
 ## Ignore example
 
 create a cypress.json in the root folder, if cypress didn't already create one for you.

@@ -1,14 +1,14 @@
 # Creating a cypress test
 
 Create a new file
-`cypress/integration/first-test.js`
+`cypress/integration/hello-cypress.js`
 
 If you have cypress open, you should see the file in the left runnable window.
 
 1. First, add a describe block like in jest
 
 ```js
-describe("My First Test", () => {});
+describe("Hello Cypress", () => {});
 ```
 
 2. We can ask cypress to visit the website we want to visit
@@ -22,12 +22,12 @@ it("visit the who is next site", () => {
 3. our first test that simplies checks that cypress can find the test
 
 ```js
-it("should render title", () => {
-  cy.contains("WHO IS NEXT");
+it("should render default Learn React text", () => {
+  cy.contains("Learn React");
 });
 ```
 
-![test runner](_media/findWhoIsNext.png)
+![test runner](_media/cypress-hello.png.png)
 
 ## Moving the URL out to the environment variable
 
