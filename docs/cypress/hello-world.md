@@ -49,6 +49,13 @@ In cypress.env.json
 }
 ```
 
+## Running in headless mode
+- `cypress run`
+- `cypress run --browser chrome`
+- `cypress run --browser electron`
+- `cypress run --spec "cypress/integration/hello-cypress.js"`
+
 ## Lab
 
 1. Using your personal project, write a cypress test that visits localhost in the application and look for the title of the website.
+2. Try running cypress in headless mode
