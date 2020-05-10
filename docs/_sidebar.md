@@ -59,9 +59,6 @@
   - [Creating a Plan](bamboo/creating-a-project.md)
   - [Creating a build agent](bamboo/build-agent.md)
 
-* **Kubernetes**
-
-- **Agile**
-  - [Project Definition](agile/project-fly.md)
-
-* **Security**
+<!-- Uncomment right before project week, 1st June -->
+<!-- - **Agile**
+  - [Project Definition](agile/project-fly.md) -->
