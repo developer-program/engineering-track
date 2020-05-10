@@ -13,6 +13,7 @@
   - [Selectors](cypress/selectors.md)
   - [Interactions and Matchers](cypress/interactions-&-matchers.md)
   - [Handling Inputs](cypress/handling-inputs.md)
+  - [Page Object Pattern](cypress/page-object-pattern.md)
 
 * **Software Design**
   - [Programming Paradigm](software-designs/programming-paradigm)

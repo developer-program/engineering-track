@@ -1,21 +1,21 @@
 # Eslint
 
-Eslint makes code east to read, help with code consistency and find problems before you run any code.
+Eslint makes code easy to read, help with code consistency and find problems before you run any code.
 
 ## Eslint react
 
-Create a eslint config file. This will show you some console options which you can select default behaviors such as choosing `react`, `typescript` and file type for the configuration such as `javascrit` and `json`. We will assume you choose `json` but converting to other format is intuitive.
+Create an eslint configuration file. This will show you some console options which you can select default behaviors such as choosing `react`, `typescript` and file type for the configuration such as `javascript` and `JSON`. We will assume you choose `JSON` but converting to other format is intuitive.
 
 ```bash
 npx eslint --init
 ```
 
-### setup env
+### setup environment
 
 Open `.eslintrc.json`
 
 Under `env`, add, `"node": true` and `"jest": true`.
-This will remove the complains with `describe`, `it`, `test` and `process.env`
+This will remove the complaining of `describe`, `it`, `test` and `process.env` not being created before used
 
 ```json
   "env": {
@@ -39,8 +39,8 @@ Detect will let eslint find the version from `package.json`
 
 ## Prettier
 
-Prettier is a set of default syling rules that are pretty well configured. Eslint doesn't have an opionion on how you style your code, is just a platform. Prettier is an opionion.
-There are others configurations avaialble such as [Airbnb eslint conifg](https://www.npmjs.com/package/eslint-config-airbnb) and more friendly version [Google eslint config](https://www.npmjs.com/package/eslint-config-google).
+Prettier is a set of default styling rules that are pretty well configured. Eslint doesn't have an opinion on how you style your code, is just a platform. Prettier is an opinion.
+There are others configurations available such as [Airbnb eslint conifg](https://www.npmjs.com/package/eslint-config-airbnb) and more friendly version [Google eslint config](https://www.npmjs.com/package/eslint-config-google).
 
 ### Installation
 
@@ -109,7 +109,7 @@ npm install eslint-plugin-cypress --save-dev
 
 ## Ignore file
 
-Running the lint command and you will see eslint throwing us lots of error on the default cypress configurations. We can ignore the examples files given by cypress and fix the rest by commenting away, changing to quotes and adding semi.
+Running the lint command and you will see eslint throwing us lots of error on the default cypress configurations. We can ignore the example files given by cypress and fix the rest by commenting away, changing to quotes and adding semi.
 
 Create a new file in the root directory `.eslintignore`
 

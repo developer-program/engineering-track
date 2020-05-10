@@ -195,3 +195,15 @@ it("checked and uncheck checkbox", () => {
   cy.get("#customCheck1").should("not.be.checked");
 });
 ```
+
+# Lab
+
+* require the instructor to enable response on the form before lab*
+
+1. complete the google form using cypress
+```json
+{
+  "ignoreTestFiles": "**/examples/*.js",
+  "baseUrl": "https://docs.google.com/forms/d/e/1FAIpQLScIzAg2LTVQ2NRItxElR6GBchdedGvzELXtwYhC_GrP-0jxFQ/viewform?usp=sf_link"
+}
+```

@@ -1,9 +1,6 @@
 # Creating a cypress test
 
-Create a new file
-`cypress/integration/hello-cypress.js`
-
-If you have cypress open, you should see the file in the left runnable window.
+Create a new file `cypress/integration/hello-cypress.js`
 
 1. First, add a describe block like in jest
 
