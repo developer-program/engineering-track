@@ -72,13 +72,13 @@ describe("Lazada", () => {
 
   it("click on 'Tablets'", () => {});
 
-  it("select Apple tablets", () => {});
+  it("select Apple icon", () => {});
 
-  it("select an iPad Pro", () => {});
+  it("Select Apple iPad Pro Wi-Fi + Cellular 11-inch", () => {});
 
-  it("select 64GB Size", () => {});
+  it("select 256GB Size", () => {});
 
-  it("add item to Cart", () => {});
+  it("Add Add to Wishlist", () => {});
 
   it("should be able to see login page", () => {});
 });
