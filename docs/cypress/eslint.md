@@ -10,6 +10,12 @@ Create an eslint configuration file. This will show you some console options whi
 npx eslint --init
 ```
 
+### Update react version
+
+1. Try running React App. 
+2. If an error occurs, likely is because the current version of React from `create-react-app` expects `eslint@6.6.0`
+3. Update eslint version using `npm i -D eslint@6.6.0`
+
 ### setup environment
 
 Open `.eslintrc.json`
@@ -53,21 +59,23 @@ npm install --save-dev prettier eslint-config-prettier eslint-plugin-prettier
 ```json
   "extends": [
     ...
-    "plugin:react/recommended",
+    "plugin:prettier/recommended",
 ]
 ```
 
 ### Overwrite rules
 
+Create `.prettierrc` in root directory
 ```json
-  "rules": {
-    "quotes": ["error", "single"]
-  },
+{
+  "singleQuote": true
+}
 ```
 
 ## Cypress
 
 ### Installation
+
 ```sh
 npm install eslint-plugin-cypress --save-dev
 ```
@@ -82,6 +90,7 @@ npm install eslint-plugin-cypress --save-dev
 ```
 
 ### Add plugin
+
 ```
   "plugins": [..., "cypress"],
 
@@ -101,7 +110,7 @@ npm install eslint-plugin-cypress --save-dev
 ```package.json
  "scripts": {
     ...
-    "app:lint": "eslint src/",
+    "lint": "eslint src/",
     "cy:lint": "eslint cypress/",
     "lint": "npm run app:lint && npm run cy:lint",
   },
@@ -118,6 +127,7 @@ cypress/integration/examples
 ```
 
 ## Lab
+
 1. configure eslint
 2. configure eslint for react
 3. configure eslint for cypress
