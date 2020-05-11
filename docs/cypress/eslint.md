@@ -114,7 +114,7 @@ npm install eslint-plugin-cypress --save-dev
 ```package.json
  "scripts": {
     ...
-    "lint": "eslint src/",
+    "app:lint": "eslint src/",
     "cy:lint": "eslint cypress/",
     "lint": "npm run app:lint && npm run cy:lint",
   },

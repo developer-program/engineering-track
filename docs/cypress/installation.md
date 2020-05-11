@@ -1,7 +1,5 @@
 # Installation
 
-##
-
 ## clone the repo
 
 We typically maintain our cypress test in our UI repo or create a new app
