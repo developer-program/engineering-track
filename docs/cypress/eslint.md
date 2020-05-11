@@ -43,6 +43,25 @@ Detect will let eslint find the version from `package.json`
   }
 ```
 
+### Other common Eslint issue
+
+Arrow function unexpected `=`
+```
+{
+  "parser": "babel-eslint"
+}
+```
+
+PropTypes error
+```
+{
+  "rules": {
+    "react/prop-types": 0
+  }
+}
+```
+
+
 ## Prettier
 
 Prettier is a set of default styling rules that are pretty well configured. Eslint doesn't have an opinion on how you style your code, is just a platform. Prettier is an opinion.
