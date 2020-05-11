@@ -16,8 +16,8 @@ I do not recommend this as we want to check in the configurations file that cont
 {
 ...,
 “env”: {
-“USERNAME”: “johnsmith”,
-“PASSWORD”: “password”
+  “USERNAME”: “johnsmith”,
+  “PASSWORD”: “password”
 }
 }
 ```
@@ -27,8 +27,8 @@ I do not recommend this as we want to check in the configurations file that cont
 Create a `cypress.env.json` in root directory
 ```json
 {
-“USERNAME”: “johnsmith”,
-“PASSWORD”: “password”
+  “USERNAME”: “johnsmith”,
+  “PASSWORD”: “password”
 }
 ```
 
@@ -55,7 +55,7 @@ Cypress.env(‘PASSWORD’);
 ### On Powersehll
 
 ```
-set USERNAME “USERNAME”
+set CYPRESS_USERNAME “USERNAME”
 ```
 
 ## As an argument

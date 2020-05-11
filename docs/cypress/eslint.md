@@ -53,7 +53,11 @@ There are others configurations available such as [Airbnb eslint conifg](https:/
 ```sh
 npm install --save-dev prettier eslint-config-prettier eslint-plugin-prettier
 ```
+### plugin 
 
+```json
+ "plugins": [..., "prettier"],
+```
 ### extend
 
 ```json

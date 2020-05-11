@@ -80,4 +80,3 @@ Now all examples files should be ignored
 
 1. Create a new project folder, install and run Cypress example files
 2. Configure Cypress to ignore test in the examples
-3. Set Up eslint and check there are no more eslint errors related to cypress
