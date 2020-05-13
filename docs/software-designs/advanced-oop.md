@@ -32,7 +32,7 @@ class Animal {
 
 class Rabbit extends Animal {
   hide() {
-    alert(`${this.name} hides!`);
+    console.log(`${this.name} hides!`);
   }
 
   // this overrides the method inherited from the Animal class
@@ -236,12 +236,12 @@ class Trainer {
 }
 ```
 
-### Composition vs inheritance
+## Composition vs inheritance
 
 When you need to reuse some logic, there are at least two choices:
- - via Inheritance. You can define the logic in a parent class and all children class can inherit it and reuse it.
- - via Composition. You can define the logic in a helper class and then whoever need that function can keep a reference to that helper and reuse it.
 
+- via Inheritance. You can define the logic in a parent class and all children class can inherit it and reuse it.
+- via Composition. You can define the logic in a helper class and then whoever need that function can keep a reference to that helper and reuse it.
 
 In many cases, reusing logic via composition is the preferred approach because it's more flexible. You may sometimes hear an advice like "favoring composition over inheritance".
 
@@ -253,20 +253,96 @@ You should declare a class B inherits from class A only when there is a true **i
 
 You should compose class B with class A (i.e. keeping a reference to class A in class B) when there is a **has-a relationship** between the two classes.
 
+## How to design classes
+
+What does it mean to "design/model a class"?
+When you design a class, you need to considering the following aspects:
+
+- What are the fields/properties?
+- What are the methods/behaviors?
+- Does it inherit from another class?
+- Does it use/compose another class? (i.e. how does this class collaborate with other classes?)
+
 ## Problems with OOP
 
 ### Mutable state
 
 OOP has mutable state, means that given some time, after the project starts evolving, there will be many side-effects created by the code to manipulate state. Often, the state becomes difficult to maintain.
 
-Read more about how people think that [OOP could be a disaster](https://medium.com/better-programming/object-oriented-programming-the-trillion-dollar-disaster-92a4b666c7c7). This has caused some to delve into functional programming instead, which avoids this mutable state problem. 
+Read more about how people think that [OOP could be a disaster](https://medium.com/better-programming/object-oriented-programming-the-trillion-dollar-disaster-92a4b666c7c7). This has caused some to delve into functional programming instead, which avoids this mutable state and side-effects problem.
 
-However, it also depends on the nature of the problem whether it is suitable for OOP or not.
-
+However, it also depends on the frameworks that the project might be using. It also depends on the team's experience and familiarity with OOP or FP. FP has a steeper learning curve.
 
 ## Exercises
 
 1. Create a **Figure** parent class
 2. Create **Circle**, **Rectangle**, **Square** child classes
-3. `calculateSurfaceArea()`: Number
-4. `calculatePerimeter()`: Number
+   They should have functions like:
+   `calculateSurfaceArea()`: Number
+   `calculatePerimeter()`: Number
+   Override the parent class functions.
+
+## Vending Machine Problem part 2
+
+Freshie wants to add a new product to the vending machine.
+The new product is coconut water, "CW" in short.
+Each cup of coconut water cost 350 cents.
+
+Modify your application to support the selling of coconut water.
+
+Input: ("OJ", [], [200])
+Output: ["OJ"]
+
+Input: ("CW", [50, 100], [200])
+Output: ["CW"]
+
+Input: ("OJ", [50, 100], [200])
+Output: ["OJ", 100, 50]
+
+Input:("OJ", [10, 20, 50, 100], [500])
+Output: ["OJ", 200, 200, 50, 20, 10]
+
+Input: ("CW", [10, 20, 50, 100], [500])
+Output: ["CW", 200, 100, 20, 10]
+
+To support the new drink, you could create a class called Drink. You could also create more classes like Orange and CoconutWater if it makes sense to do so.
+
+Try out doing this question with TDD.
+
+Sample test: (You could write it differently and have more tests)
+
+```js
+it("should return correct change when buying a different drink ", () => {
+  vendingMachine.insertMoney([[50, 100], [200]]);
+  expect(vendingMachine.dispenseDrinkAndChange("CW")).toEqual(["CW"]);
+});
+```
+
+## Vending Machine Problem part 3
+
+Freshie wants to expand their business overseas. However, their overseas client would like the vending machine to support selling drinks in cans as well as cups.
+
+Input:("CAN", "OJ", [10, 20, 50, 100], [500])
+Output: ["OJ IN CAN", 200, 200, 50, 20, 10]
+Input: ("CUP", "CW", [10, 20, 50, 100], [500])
+Output: ["CW IN CUP", 200, 100, 20, 10]
+
+To support the new container method, you could create a class called Container. You could also create more classes like Cup and Can if it makes sense to do so.
+
+Suggestion: You can choose to override parent method(s).
+
+Possible tests: (You should have more tests than this!)
+
+```js
+it("should return change if money is not enough to buy drink", () => {
+  vendingMachine.insertMoney([[100], []]);
+  expect(vendingMachine.dispenseDrinkAndChange("CUP", "OJ")).toEqual([100]);
+});
+
+it("should return drink in a can when buying a drink in a can", () => {
+  vendingMachine.insertMoney([[50, 100], [200]]);
+  expect(vendingMachine.dispenseDrinkAndChange("CAN", "CW")).toEqual([
+    "CW IN A CAN",
+  ]);
+});
+```

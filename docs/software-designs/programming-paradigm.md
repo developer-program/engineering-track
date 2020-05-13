@@ -89,3 +89,18 @@ area_of_triangle x y z
   where
     s=(x+y+z)/2
 ```
+
+## FP vs OOP
+
+| Object Oriented                                     | Functional                                                                           |
+| --------------------------------------------------- | ------------------------------------------------------------------------------------ |
+| a lot of classes and each offers only a few methods | a few well-known data structures (e.g. list, map) and they support tons of functions |
+| Classes/Objects are the first class citizen         | Functions are the first class citizen                                                |
+| build programs by composing objects                 | build programs by composing functions                                                |
+
+Some possible benefits of FP:
+- easier to test (just test input -> output is mapped correctly)
+- easier to reason about (don’t need to worry about side-effects)
+- composability / modularity
+- scalability / concurrency
+- (can be) less verbose

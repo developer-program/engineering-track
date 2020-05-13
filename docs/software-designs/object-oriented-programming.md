@@ -17,7 +17,7 @@ OOP strongly emphasizes modularity, thus it promotes greater flexibility and mai
 
 - A named concept that represent a group of things with same characteristics
 - In ES6 for JavaScript, classes were introduced as a new syntax for defining objects
-- This new class syntax is just syntactic sugar. Under the hood it is still using the old inheritance method with prototypes. We will understand prototypes (which is very specific to JavaScript) later.
+- This new class syntax is just syntactic sugar. Under the hood it is still using the inheritance method with prototypes which is specific to JavaScript.
 
 ```js
 //defining an Animal class
@@ -99,7 +99,7 @@ For example, if we abstract a television console, it will be abstracted to the s
 
 Encapsulation is to put data and the operations using/manipulating the data into the same class.
 
-- Some of the implementation details are declared as 'private' and hidden from public interface. (Some languages like Java makes it very easy to declare private fields, but JavaScript does not have straightforward support on this.)
+- Some of the implementation details are declared as 'private' and hidden from public interface. (Some languages like Java makes it very easy to declare private fields, but JavaScript did not have straightforward support of it. It is now an [experimental feature in Node 12](https://github.com/tc39/proposal-class-fields).)
 - the functionality offered by an instance is only accessed through the public interface.
 
 ## Exercise 1
@@ -117,9 +117,25 @@ Car objects:
 
 What kind of methods should the cars have?
 
-## Static methods
+## Static methods and fields
 
-Static methods are methods that are callable on the class itself - not on its instances.
+Static methods are methods that are callable on the class itself - not on its instances. Static fields are similar, fields that are only callable on the class itself.
+
+```js
+class Theatre {
+  static SEAT_TYPE = {
+    GOLD_CLASS: "GOLD_CLASS",
+    NORMAL: "NORMAL",
+  };
+
+  static isValidSeat(seat) {
+    const seatTypes = Object.values(Theatre.SEAT_TYPE);
+    return seatTypes.includes(seat);
+  }
+}
+```
+
+Adding public static fields this way is [an experimental feature (stage 3)](https://github.com/tc39/proposal-class-fields) which is possible in Node 12 and newer versions.
 
 Static methods are used typically to implement behavior that does not pertain to a particular instance. For example, we could design a `Vehicle` class so that it tracks every vehicle it creates. We could then write static methods that return how many vehicles have been created, search for vehicles by their make, etc.
 
@@ -194,7 +210,10 @@ function Person(name) {
 
 var bob = new Person("Bob");
 console.log(typeof bob);
+console.log(bob.name);
 ```
+
+The function named Person is a constructor function. This works because in JavaScript, remember that functions are first-class objects. As first-class objects, you can add members to the function.
 
 In ES6, we have syntactic sugar of a "class".
 
@@ -205,8 +224,9 @@ class Person {
   }
 }
 
-var bob = new Person("Bob");
+const bob = new Person("Bob");
 console.log(bob instanceof Person);
+console.log(bob.name);
 ```
 
 Compare this with object literals in JavaScript:
@@ -217,6 +237,10 @@ const bob = {
 };
 ```
 
+Note that these object literals actually has a `__proto__` property which links to the prototype of Object, which means that it was as if you did `const bob = new Object()`. This allows the object literals to inherit methods from the Object prototype.
+
+JavaScript prototypes is a complicated subject. For this coure, we will just use the syntactic sugar syntax of classes. If you would like to know more about JavaScript prototypes, you could read watch videos like [A beginner guide to JavaScript's Prototype](https://www.youtube.com/watch?v=XskMWBXNbp0) and [JavaScript inheritance and the Prototype Chain](https://www.youtube.com/watch?v=MiKdRJc4ooE)
+
 ## Exercise 2
 
 Create a parent **Vehicle** class which has child classes **Car** and **Motorcycle**.
@@ -224,5 +248,58 @@ The classes should have fields such as `Manufacturer`.
 **Motorcycle** class should have an extra field for `gear` because it has a 6th gear.
 What kind of fields and methods should be in the parent class?
 
-
 Read more about this here [in this gist](https://gist.github.com/jim-clark/5d66a759b3842b4a06659d1d73da25b6).
+
+## Vending Machine Problem part 1
+
+Credit: Elson Lim
+
+Freshie is an F&B startup, and the company's want to design an Orange juice vending machine.
+
+The vending machine can take in coins and notes.
+It will dispense orange juice when the accumulated sum hits 200 cents.
+The vending machine will dispense the orange juice in a plastic cup together with the change.
+
+The vending machine can take in the following currency (in cents).
+
+Coins: 10, 20, 50, 100
+Notes: 200, 500
+
+Input: ([], [200])
+Output: ["OJ"]
+
+Explanation: \$2 note returns a cup of orange juice with no change
+
+Input: ([50, 100], [200, 200, 200])
+Output: ["OJ", 500, 50]
+
+Explanation: Input of 50 and 100 cents
+and three \$2 notes (200 used, 550 as change) returns a cup of orange juice and change
+
+Input: ([10, 20, 50, 100], [500])
+Output: ["OJ", 200, 200, 50, 20, 10]
+
+Explanation: Input of 680 (200 used, 480 as change) returns a cup of orange juice and change
+
+1. Create vending machine as a class named `VendingMachine`.
+2. Decide what functions should we have. You are free to design your own functions.
+
+Possible tests: (You should have more tests than this!)
+
+Try out doing this question with TDD.
+
+```js
+beforeEach(() => {
+  vendingMachine = new VendingMachine([10, 20, 50, 100, 200, 500]);
+});
+
+it("should return change if money is not enough to buy drink", () => {
+  vendingMachine.insertMoney([[100], []]);
+  expect(vendingMachine.dispenseDrinkAndChange().toEqual([100]);
+});
+
+it("should return drink if there is enough money to buy drink", () => {
+  vendingMachine.insertMoney([[], [200]]);
+  expect(vendingMachine.dispenseDrinkAndChange().toEqual(["OJ"]);
+});
+```
