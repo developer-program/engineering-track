@@ -277,10 +277,13 @@ However, it also depends on the frameworks that the project might be using. It a
 
 1. Create a **Figure** parent class
 2. Create **Circle**, **Rectangle**, **Square** child classes
-   They should have functions like:
-   `calculateSurfaceArea()`: Number
-   `calculatePerimeter()`: Number
-   Override the parent class functions.
+
+They should have functions like:
+
+- `calculateSurfaceArea()`: Number
+- `calculatePerimeter()`: Number
+
+Override the parent class functions.
 
 ## Vending Machine Problem part 2
 
@@ -290,6 +293,7 @@ Each cup of coconut water cost 350 cents.
 
 Modify your application to support the selling of coconut water.
 
+```
 Input: ("OJ", [], [200])
 Output: ["OJ"]
 
@@ -304,6 +308,7 @@ Output: ["OJ", 200, 200, 50, 20, 10]
 
 Input: ("CW", [10, 20, 50, 100], [500])
 Output: ["CW", 200, 100, 20, 10]
+```
 
 To support the new drink, you could create a class called Drink. You could also create more classes like Orange and CoconutWater if it makes sense to do so.
 
@@ -322,10 +327,13 @@ it("should return correct change when buying a different drink ", () => {
 
 Freshie wants to expand their business overseas. However, their overseas client would like the vending machine to support selling drinks in cans as well as cups.
 
+```
 Input:("CAN", "OJ", [10, 20, 50, 100], [500])
 Output: ["OJ IN CAN", 200, 200, 50, 20, 10]
+
 Input: ("CUP", "CW", [10, 20, 50, 100], [500])
 Output: ["CW IN CUP", 200, 100, 20, 10]
+```
 
 To support the new container method, you could create a class called Container. You could also create more classes like Cup and Can if it makes sense to do so.
 
