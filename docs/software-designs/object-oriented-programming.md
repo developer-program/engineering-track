@@ -290,16 +290,16 @@ Try out doing this question with TDD.
 
 ```js
 beforeEach(() => {
-  vendingMachine = new VendingMachine([10, 20, 50, 100, 200, 500]);
+  vendingMachine = new VendingMachine();
 });
 
 it("should return change if money is not enough to buy drink", () => {
   vendingMachine.insertMoney([[100], []]);
-  expect(vendingMachine.dispenseDrinkAndChange().toEqual([100]);
+  expect(vendingMachine.dispenseDrinkAndChange()).toEqual([100]);
 });
 
 it("should return drink if there is enough money to buy drink", () => {
   vendingMachine.insertMoney([[], [200]]);
-  expect(vendingMachine.dispenseDrinkAndChange().toEqual(["OJ"]);
+  expect(vendingMachine.dispenseDrinkAndChange()).toEqual(["OJ"]);
 });
 ```

@@ -310,14 +310,30 @@ Input: ("CW", [10, 20, 50, 100], [500])
 Output: ["CW", 200, 100, 20, 10]
 ```
 
-To support the new drink, you could create a class called Drink. You could also create more classes like Orange and CoconutWater if it makes sense to do so.
+Freshie is likely to add more products in the future. To support new products, you could create classes like MenuItems and Item. Item class will have the price and name of the item, MenuItems uses composition to store an array of items.
 
-Try out doing this question with TDD.
+Try doing this question with TDD.
 
-Sample test: (You could write it differently and have more tests)
+Example tests: (You could write them differently and you should have more tests than these)
 
 ```js
-it("should return correct change when buying a different drink ", () => {
+beforeEach(() => {
+  vendingMachine = new VendingMachine();
+  vendingMachine.addMenuItem(new Item("OJ", 200));
+  vendingMachine.addMenuItem(new Item("CW", 350));
+});
+
+it("should return change if money is not enough to buy drink", () => {
+  vendingMachine.insertMoney([[100], []]);
+  expect(vendingMachine.dispenseDrinkAndChange("OJ")).toEqual([100]);
+});
+
+it("should return drink with no change if there is just enough money to buy drink", () => {
+  vendingMachine.insertMoney([[], [200]]);
+  expect(vendingMachine.dispenseDrinkAndChange("OJ")).toEqual(["OJ"]);
+});
+
+it("should return drink with no change when buying a different drink with just enough money", () => {
   vendingMachine.insertMoney([[50, 100], [200]]);
   expect(vendingMachine.dispenseDrinkAndChange("CW")).toEqual(["CW"]);
 });
@@ -335,9 +351,9 @@ Input: ("CUP", "CW", [10, 20, 50, 100], [500])
 Output: ["CW IN CUP", 200, 100, 20, 10]
 ```
 
-To support the new container method, you could create a class called Container. You could also create more classes like Cup and Can if it makes sense to do so.
+To support the new container method, you could create a class called Container. You could also create more classes like Cup and Can and inherit from parent class Container if it makes sense to do so. You can even choose to override parent method(s).
 
-Suggestion: You can choose to override parent method(s).
+You can make use of composition again to store an Item (the class we previously made) inside an instance of the Container class.
 
 Possible tests: (You should have more tests than this!)
 

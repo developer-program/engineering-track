@@ -1,11 +1,12 @@
 # Design Principles
 
-If you don't eat, you will get hungry. If you don't sleep for two days, you won't be able to focus as well.
-How do we know these? How can we prove this is true? There might be a scientific explanation behind it but even without one, but based on my experience, been there done that, suffer the consequence I believe in it and so do many others.
+If you don't eat, you will get hungry. If you don't sleep for two days, you won't be able to focus on tasks.
 
-Design principles are ways organising our class, functions and methods in a way that many believes will result in code that is easier to read, also understand and adaptable to changes. They come from long debates and experience of many veterans before us.
+How did we know this? How can we prove this is true? There might be a scientific explanation behind it but even without one, I know it is true based on anecdotal evidence, based on my own experience. I could say that I "been there done that", and that I suffered the consequences of it before.
 
-"Any fool can write code that a computer can understand. Good programmers write code that human can understand" - Martin Fowler.
+Design principles are common ways of organising our class, functions and methods. Many people believe these principles will result in code that is easier to read, understand, maintain and is still adaptable to changes. They come from long debates and experience of many veterans before us.
+
+> "Any fool can write code that a computer can understand. Good programmers write code that human can understand" - Martin Fowler.
 
 ## Content
 
@@ -19,23 +20,27 @@ Adapted from "The Pragmatic Programmer" by Andy Hunt and David Thomas, published
 
 The DRY principle is the solution to "The Evil of Duplication". When codes duplicated, it becomes hard to maintain. If the same piece of logic appears in the code multiple times, when a requirement to change the logic, a software developer will need to remember, where these different piece of logics are and change them.
 
-Is hard to remember what you eat for breakfast one month ago today, probably similar to what you eat every day, is even harder to remember what your family eat for breakfast a month ago.
+It is hard to remember what you eat for breakfast one month ago today, even if it is probably similar to what you eat every day, and it is even harder to remember what your family eat for breakfast a month ago.
 
-Duplications of code make maintenance hard for multiple reasons.
+Duplications of code make maintenance of code hard for multiple reasons. Take these into considerations before you "copy and paste" code.
 
 1. One developer needs to know what multiple developers did in the history of the project.
-2. Even doing the same code multiple times can prone to error. The variables name might be slightly different.
+2. Even doing the same code multiple times can prone to error. Higher chance of introducing bugs. The variables' name might be slightly different too.
+3. More difficult to debug. If the program has a bug in method A but method B has the same code then you might try to find the bug at method B instead and end up wasting time.
+4. Adding a new feature to duplicate code will result in more duplication. The extra duplication might introduce bugs.
 
 "Every piece of **knowledge** must have a single, unambiguous authoritative representation within a system".
 
-Andy Hunt and David Thomas explained that there is four cause of duplication.
+Andy Hunt and David Thomas explained that there are four causes of duplication.
 
 - Imposed duplication: Architecture decision
 - Inadvertent duplication: Developers don't know about the duplication
 - Impatient duplication: Duplicate the code was easier to do during development
 - Interdeveloper duplication: Multiple people on a team duplicate the same piece of information
 
-Example of Duplication
+Example of Duplication:
+
+Does this code look like it has been copied and pasted over?
 
 ```javascript
 const SavedModal = ({ showSavedModal, closeSave }) => {
@@ -79,7 +84,7 @@ const PublishModal = ({ showPublishedModal, closePublish }) => {
 };
 ```
 
-Is there any way to remove duplicate?
+Is there any way to remove the duplicate code?
 
 ```javascript
 const confimationModalFactory = (message) => { showSavedModal, closeSave }) => {
@@ -106,23 +111,23 @@ const SavedModal = confimationModalFactory("Successfully saved!");
 const PublishModal = confimationModalFactory("Successfully published!");
 ```
 
-Another form of duplication.
+Other forms of duplication:
 
-- Documentation in code. When we write a comment and then code, the comments written is another form of duplication of knowledge.
-- language issue
+- Documentation in code. When we write a comment and then start coding, the comments written is another form of duplication of knowledge.
+- language / framework issue
 
 An example of a language issue can be the wrapAsync is a logic that calls `next(Error)`. That prevented some logic from duplicating. If we look at the code, every handler still has `wrapAsync`. It would be nice if we can have the try-catch mechanism as a global setting.
 
 ```javascript
-const wrapAsync = fn => async (req, res, next) => {
-  Promise.resolve(fn(req, res, next)).catch(err => next(err));
+const wrapAsync = (fn) => async (req, res, next) => {
+  Promise.resolve(fn(req, res, next)).catch((err) => next(err));
 };
 
 router.get(
   "/:articleId",
   wrapAsync(async (req, res, next) => {
     const singleArticle = await Publish.find({
-      id: req.params.articleId
+      id: req.params.articleId,
     });
     res.status(200).send(singleArticle);
   })
@@ -133,7 +138,7 @@ router.patch(
     const publishingArticle = req.body;
     const updatePublishedArticle = await Publish.findOneAndUpdate(
       {
-        id: req.params.articleId
+        id: req.params.articleId,
       },
       publishingArticle,
       { new: true }
@@ -147,8 +152,12 @@ router.patch(
 
 Adapted from Ian Holland at Northeastern University in 1987.
 
-Also known as the principle of least knowledge. Each object can only have access to properties and methods the object has access to
-Today when you buy chicken rice, do you give auntie your whole wallet or pay him the amount.
+Also known as the principle of least knowledge. Each object can only have access to properties and methods the object has access to.
+
+- Each unit should only talk to its friends; don't talk to strangers.
+- Only talk to your immediate friends.
+
+When you buy chicken rice, do you give the seller your whole wallet or the actual money?
 
 ```javascript
 const Wallet {
@@ -194,7 +203,8 @@ class Shop {
 
 Adapted from "Design Principles and Design Patterns" by Bob Martin, in 2000.
 In 2004, Michael Feathers realised that the principles could arrange to form the acronym SOLID.
-Bob Martin started to assemble rules of what makes code that is easy to maintain in the late 1980s and finalise them only more than a decade after.
+
+Bob Martin started to assemble rules of what makes code easy to maintain in the late 1980s and only finalised them more than a decade after.
 
 1. Single Responsibility Principle(SRP)
 2. Open-Closed Principle(OCP)
@@ -202,29 +212,68 @@ Bob Martin started to assemble rules of what makes code that is easy to maintain
 4. Interface Segregation Principle(ISP)
 5. Dependency Inversion Principle(DIP)
 
-The principles overlap each other.
+The principles may overlap each other.
 
 ### SRP
 
 _A Module should be responsible to one, and only one, actor_
 
-A Module is a part of the program that are closely related, put together to provide functionality. It can be a function, a class, a single file, a single server.
+A Module is a part of the program that are closely related, put together to provide functionality. It can be a function, a class, a single file, a single server. This module has only one responsibility in the code.
+
+It also has been described as only having "one reason to change". Because the module has only one responsibility, editing that particular responsibility will be the only reason to change the module. Also think about the nature of the business environment in which the code is undergoing change.
+
+> [Gather together the things that change for the same reasons. Separate those things that change for different reasons. - Bob Martin](https://blog.cleancoder.com/uncle-bob/2014/05/08/SingleReponsibilityPrinciple.html)
+
+The following code does not follow SRP.
+
+```js
+const scores = [100, 200, 300];
+const calculateTotalScore = (scores) => {
+  const totalScore = scores.reduce((sum, score) => {
+    return (sum += score);
+  });
+  console.log(`total score is ${totalScore}`);
+};
+
+calculateTotalScore(scores);
+```
+
+How can we make it better?
+
+```js
+const scores = [100, 200, 300];
+const calculateTotalScore = (scores) => {
+  return scores.reduce((sum, score) => {
+    return (sum += score);
+  });
+};
+
+const printTotalScore = (total) => {
+  console.log(`total score is ${total}`);
+};
+
+printTotalScore(calculateTotalScore(scores));
+```
 
 ### OCP
 
-_A software artifcat should be open for extension but closed for modification_
+_Software entities should be open for extension but closed for modification_
+
+Bertrand Meyer explained this principle as the open/closed principle, which appeared in his 1988 book Object Oriented Software Construction.
 
 Classes should be able to extend without any modification of the internal structure.
 If a new requirement that doesn't affect the existing functionality, a code that fulfils OCP, should not result in changes in existing code.
 
-Think of Nintendo Labo, Nintendo controller have interface that opens to extensions of different controllers and Labo accessories. None of them requires you to dispense the controller itself. It does that by exposing the right interface.
+A good real-life example is Nintendo Labo. Nintendo controllers have interfaces that are open to extensions of different controllers and Labo accessories. None of them requires you to edit the original controller itself. It does that by exposing the right interface.
+
+When you add a new container or a new menu item did you have to modify the internal structure?
 
 ### Liscov Substituion principle
 
-Created y Barbara Liskov in 1988:
+Created by Barbara Liskov in 1988:
 _Let Φ(x) be a property provable about objects x of type T. Then Φ(y) should be true for objects y of type S where S is a subtype of T._
 
-In Bob Martin's words
+In Bob Martin's words:
 _Objects in a program should be replaceable with instances of their subtypes without altering the correctness of that program._
 
 Say we have a vehicle class that can drive, turn left, turn right, top-up fuel.
@@ -310,7 +359,7 @@ const articleSchema = new mongoose.Schema(
     id: { type: String, required: true, unique: true },
     title: { type: String, required: true, unique: true, trim: true },
     topicAndSubtopicArray: [topicSubtopicSchema],
-    isPublished: { type: Boolean, default: false }
+    isPublished: { type: Boolean, default: false },
   },
   { timestamps: true }
 );
@@ -319,8 +368,8 @@ articleSchema.index(
   {
     unique: true,
     partialFilterExpression: {
-      "topicAndSubtopicArray.title": { $exists: true }
-    }
+      "topicAndSubtopicArray.title": { $exists: true },
+    },
   }
 );
 const Publish = mongoose.model("Publish", articleSchema);
@@ -331,7 +380,7 @@ router.patch(
     const publishingArticle = req.body;
     const updatePublishedArticle = await Publish.findOneAndUpdate(
       {
-        id: req.params.articleId
+        id: req.params.articleId,
       },
       publishingArticle,
       { new: true }
@@ -340,3 +389,7 @@ router.patch(
   })
 );
 ```
+
+## Exercises
+
+Review your vending machine lab so far and discuss how you can apply the design principles. Can we refactor our existing code?
