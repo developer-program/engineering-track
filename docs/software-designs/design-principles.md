@@ -261,10 +261,16 @@ _Software entities should be open for extension but closed for modification_
 
 Bertrand Meyer explained this principle as the open/closed principle, which appeared in his 1988 book Object Oriented Software Construction.
 
+When Bob Martin included it in his SOLID principles, he explained it as:
+
+> You should be able to extend the behavior of a system without having to modify that system. - Bob Martin
+
 Classes should be able to extend without any modification of the internal structure.
 If a new requirement that doesn't affect the existing functionality, a code that fulfils OCP, should not result in changes in existing code.
 
 A good real-life example is Nintendo Labo. Nintendo controllers have interfaces that are open to extensions of different controllers and Labo accessories. None of them requires you to edit the original controller itself. It does that by exposing the right interface.
+
+Another example is when we play games we can download mods to add new functionality to the current game without having to edit the code of the current game. Or you could think of them like plug-ins.
 
 When you add a new container or a new menu item did you have to modify the internal structure?
 
@@ -276,21 +282,33 @@ _Let Φ(x) be a property provable about objects x of type T. Then Φ(y) should b
 In Bob Martin's words:
 _Objects in a program should be replaceable with instances of their subtypes without altering the correctness of that program._
 
-Say we have a vehicle class that can drive, turn left, turn right, top-up fuel.
-If we put a bicycle as a vehicle(since a bicycle is a vehicle), we cannot substitute the bicycle as a vehicle that can top up fuel.
+Child cannot be stricter than its parent.
 
-```javascript
-// Vehicle
-Class Vehicle
-- moveForward()
-- turnLeft()
-- turnRight()
-- topUpFuel()
-- reverse()
+If we can rely on LSP, it allows us to use polymorphism reliably in our code.
 
-// top up fuel for all vehicle
-vehicles.forEach(vehicle => vehicle.topUpFuel(5))
+Say we have a vehicle class that can move forward, reverse, turn left, turn right and top-up fuel. If we declare a bicycle as a vehicle (and it is considered a vehicle in real-life), we cannot substitute the bicycle as a vehicle that can top up fuel.
+
+```js
+class Vehicle {
+  moveForward() {}
+  turnLeft() {}
+  turnRight() {}
+  topUpFuel() {}
+  reverse() {}
+}
+
+// top up fuel for all vehicles
+vehicles.forEach((vehicle) => vehicle.topUpFuel(5));
+
+class Bicycle extends Vehicle {
+  topUpFuel() {
+    // what to do here??
+    throw Error("no fuel for bicycle!");
+  }
+}
 ```
+
+Another common example is that `Square` cannot extend the class `Rectangle`. Why do you think this is so?
 
 ### ISP
 
