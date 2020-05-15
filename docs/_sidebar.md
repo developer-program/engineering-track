@@ -55,12 +55,12 @@
 
 - **Continuous Integration with Bamboo**
 
-  - [CI & CD](bamboo/intro-ci-cd)
-  - [What is Bamboo](bamboo/introduction)
-  - [Install Bamboo on Mac](bamboo/installation)
-  - [Install Bamboo on EC2](bamboo/installationRemote)
-  - [Creating a Plan](bamboo/creating-a-project.md)
-  - [Creating a build agent](bamboo/build-agent.md)
+  - [CI & CD](ci-cd/intro-ci-cd)
+  - [What is Bamboo](ci-cd/introduction)
+  - [Install Bamboo on Mac](ci-cd/installation)
+  - [Install Bamboo on EC2](ci-cd/installationRemote)
+  - [Creating a Plan](ci-cd/creating-a-project.md)
+  - [Creating a build agent](ci-cd/build-agent.md)
 
 <!-- Uncomment right before project week, 1st June -->
 <!-- - **Agile**
