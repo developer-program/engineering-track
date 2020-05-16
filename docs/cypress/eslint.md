@@ -12,7 +12,7 @@ npx eslint --init
 
 ### Update react version
 
-1. Try running React App. 
+1. Try running React App.
 2. If an error occurs, likely is because the current version of React from `create-react-app` expects `eslint@6.6.0`
 3. Update eslint version using `npm i -D eslint@6.6.0`
 
@@ -46,21 +46,22 @@ Detect will let eslint find the version from `package.json`
 ### Other common Eslint issue
 
 Arrow function unexpected `=`
-```
+
+```json
 {
   "parser": "babel-eslint"
 }
 ```
 
 PropTypes error
-```
+
+```json
 {
   "rules": {
     "react/prop-types": 0
   }
 }
 ```
-
 
 ## Prettier
 
@@ -72,11 +73,13 @@ There are others configurations available such as [Airbnb eslint conifg](https:/
 ```sh
 npm install --save-dev prettier eslint-config-prettier eslint-plugin-prettier
 ```
-### plugin 
+
+### plugin
 
 ```json
  "plugins": [..., "prettier"],
 ```
+
 ### extend
 
 ```json
@@ -89,6 +92,7 @@ npm install --save-dev prettier eslint-config-prettier eslint-plugin-prettier
 ### Overwrite rules
 
 Create `.prettierrc` in root directory
+
 ```json
 {
   "singleQuote": true
@@ -114,14 +118,14 @@ npm install eslint-plugin-cypress --save-dev
 
 ### Add plugin
 
-```
+```json
   "plugins": [..., "cypress"],
 
 ```
 
 ### Add recommended rules
 
-```
+```json
   "extends": [
     ...,
     "plugin:cypress/recommended"
@@ -130,7 +134,7 @@ npm install eslint-plugin-cypress --save-dev
 
 ## Scripts to run cypress
 
-```package.json
+```json
  "scripts": {
     ...
     "app:lint": "eslint src/",
