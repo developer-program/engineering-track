@@ -56,6 +56,7 @@
 - **Continuous Integration with Bamboo**
 
   - [CI & CD](ci-cd/intro-ci-cd)
+  - [Deploy React using codepipeline](ci-cd/aws-code-pipeline.md)
   - [What is Bamboo](ci-cd/introduction)
   - [Install Bamboo on Mac](ci-cd/installation)
   - [Install Bamboo on EC2](ci-cd/installationRemote)
