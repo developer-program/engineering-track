@@ -2,7 +2,7 @@
 
 If you don't eat, you will get hungry. If you don't sleep for two days, you won't be able to focus on tasks.
 
-How did we know this? How can we prove this is true? There might be a scientific explanation behind it but even without one, I know it is true based on anecdotal evidence, based on my own experience. I could say that I "been there done that", and that I suffered the consequences of it before.
+How did we know this? How can we prove this is true? There might be a scientific explanation behind it but even without one, I know it is true based on anecdotal evidence, based on my own experience.
 
 Design principles are common ways of organising our class, functions and methods. Many people believe these principles will result in code that is easier to read, understand, maintain and is still adaptable to changes. They come from long debates and experience of many veterans before us.
 
@@ -18,11 +18,11 @@ Design principles are common ways of organising our class, functions and methods
 
 Adapted from "The Pragmatic Programmer" by Andy Hunt and David Thomas, published in 1999.
 
-The DRY principle is the solution to "The Evil of Duplication". When codes duplicated, it becomes hard to maintain. If the same piece of logic appears in the code multiple times, when a requirement to change the logic, a software developer will need to remember, where these different piece of logics are and change them.
+The **DRY** principle is the solution to "The Evil of Duplication". When code is duplicated, it becomes hard to maintain. If the same piece of logic appears in the code multiple times, when a requirement changes which then changes the logic, the software developer will need to change these duplicated pieces of logic at all the different places.
 
-It is hard to remember what you eat for breakfast one month ago today, even if it is probably similar to what you eat every day, and it is even harder to remember what your family eat for breakfast a month ago.
+Do you remember what you ate for breakfast one month ago? If you can't, then you won't be able to remember where all these duplicate pieces of logic are in the code. Even if you can remember, it will be tedious and error-prone to change all the duplicated code.
 
-Duplications of code make maintenance of code hard for multiple reasons. Take these into considerations before you "copy and paste" code.
+Duplications of code make maintenance of code hard for multiple reasons. Take these consequences into consideration before you "copy and paste" code.
 
 1. One developer needs to know what multiple developers did in the history of the project.
 2. Even doing the same code multiple times can prone to error. Higher chance of introducing bugs. The variables' name might be slightly different too.
@@ -34,15 +34,15 @@ Duplications of code make maintenance of code hard for multiple reasons. Take th
 Andy Hunt and David Thomas explained that there are four causes of duplication.
 
 - Imposed duplication: Architecture decision
-- Inadvertent duplication: Developers don't know about the duplication
-- Impatient duplication: Duplicate the code was easier to do during development
-- Interdeveloper duplication: Multiple people on a team duplicate the same piece of information
+- Inadvertent duplication: Developers didn't know about the duplication
+- Impatient duplication: Duplicating the code was easier to do during development
+- Interdeveloper duplication: Multiple people on a team duplicated the same piece of information
 
-Example of Duplication:
+Example of Duplication in React:
 
 Does this code look like it has been copied and pasted over?
 
-```javascript
+```js
 const SavedModal = ({ showSavedModal, closeSave }) => {
   return (
     <Modal open={showSavedModal}>
@@ -152,7 +152,7 @@ router.patch(
 
 Adapted from Ian Holland at Northeastern University in 1987.
 
-Also known as the principle of least knowledge. Each object can only have access to properties and methods the object has access to.
+Also known as the principle of least knowledge. Each object should only directly access properties and methods.
 
 - Each unit should only talk to its friends; don't talk to strangers.
 - Only talk to your immediate friends.
@@ -167,7 +167,7 @@ const Wallet {
         if (this.amount >= amount) {
             this.amount -= amount;
         } else {
-            throw new Error();
+            throw new Error("Wallet does not have enough money to pay this amount");
         }
     }
 
@@ -189,7 +189,7 @@ const alice = new Consumer();
 
 class Shop {
     transactionBad(consumer, price) {
-        consumer.wallet.pay(price);  // break law of Demeter, alice should not know about the price.
+        consumer.wallet.pay(price);  // breaks Law of Demeter, Shop should not know about the Alice's wallet
     }
 
     transactionBetter(consumer, price) {
@@ -206,15 +206,15 @@ In 2004, Michael Feathers realised that the principles could arrange to form the
 
 Bob Martin started to assemble rules of what makes code easy to maintain in the late 1980s and only finalised them more than a decade after.
 
-1. Single Responsibility Principle(SRP)
-2. Open-Closed Principle(OCP)
-3. Liskov Substitution Principle(LSP)
-4. Interface Segregation Principle(ISP)
-5. Dependency Inversion Principle(DIP)
+1. Single Responsibility Principle (SRP)
+2. Open-Closed Principle (OCP)
+3. Liskov Substitution Principle (LSP)
+4. Interface Segregation Principle (ISP)
+5. Dependency Inversion Principle (DIP)
 
 The principles may overlap each other.
 
-### SRP
+### Single Responsibility Principle (SRP)
 
 _A Module should be responsible to one, and only one, actor_
 
@@ -255,7 +255,7 @@ const printTotalScore = (total) => {
 printTotalScore(calculateTotalScore(scores));
 ```
 
-### OCP
+### Open/Closed Principle (OCP)
 
 _Software entities should be open for extension but closed for modification_
 
@@ -272,7 +272,11 @@ A good real-life example is Nintendo Labo. Nintendo controllers have interfaces 
 
 Another example is when we play games we can download mods to add new functionality to the current game without having to edit the code of the current game. Or you could think of them like plug-ins.
 
+We made use of OCP in the Vending Machine lab.
+
 When you add a new container or a new menu item did you have to modify the internal structure?
+
+How did you add a new menu item?
 
 ### Liscov Substituion principle
 
@@ -308,13 +312,15 @@ class Bicycle extends Vehicle {
 }
 ```
 
-Another common example is that `Square` cannot extend the class `Rectangle`. Why do you think this is so?
-
-### ISP
+### Interface Segregation Principle (ISP)
 
 _Clients should not be forced to depend upon interfaces that they do not use._
 
-The above example for bicycle also breaks ISP, bicycle if takes an interface of vehicles would be for to implement the method of `topUpFuel()`
+There is no true interfaces in JavaScript, only in TypeScript. But we can interpret this ISP rule as: if another module depends on this module, is there something that the other module does not need?
+
+In other words, am I forcing the other module to have a certain logic?
+
+The above example for bicycle also breaks ISP, if we consider that an interface of vehicles would be to implement the method of `topUpFuel()`
 
 ```javascript
 class Bicycle extends Vehicle {
@@ -324,10 +330,56 @@ class Bicycle extends Vehicle {
 }
 ```
 
+Another interpretation of ISP is to not force every instance of the class to run some logic by putting an logic that is supposed to be optional in the constructor.
+
+For example,
+
+```js
+class User {
+  constructor(user) {
+    this.user = user;
+    this.initiateUser();
+  }
+
+  initiateUser() {
+    this.name = this.user.name;
+    this.validateUser(); // this is optional!! not every user will need validation
+  }
+}
+```
+
+```js
+class User {
+  constructor(user) {
+    this.properties = user.properties;
+    this.initiateUser();
+    this.setupOptions = user.options;
+  }
+
+  initiateUser(){
+    this.name = this.user.name
+    this.setupOptions()
+  }
+}
+
+function validateUser() {
+ //some other code...
+}
+const properties = {
+  //some other code...
+}
+const user = new User({ properties, options: validateUser});
+const userWithNoValidation = new User({ properties, options: ()={}};
+```
+
 ### Composition over inheritance
 
-```javascript
-class FueledPoweredVehicle {
+Sometimes we can use 'composition over inheritance' advice to conform to ISP.
+
+The following code violates ISP as `Car` is forced to own the `fuelLevel` property and the `topUpFuel` method.
+
+```js
+class FuelPoweredVehicle {
   constructor(fuelLevel) {
     this.fuelLevel = fuelLevel;
   }
@@ -337,13 +389,16 @@ class FueledPoweredVehicle {
   }
 }
 
-// using inheritance
-class Car extends FueledPoweredVehicle {
-  topUpFuel() {}
-}
+// Using inheritance
+class Car extends FueledPoweredVehicle {}
+```
 
-// using composition
-class fuelTank {
+Also, we cannot make `Bicycle` class extend `FueledPoweredVehicle`!
+
+Let's use composition instead and see how it looks like:
+
+```js
+class FuelTank {
   constructor(fuelLevel) {
     this.fuelLevel = fuelLevel;
   }
@@ -364,12 +419,17 @@ class Car {
 }
 ```
 
-### DIP
+Now `topUpFuel` rightly belongs as a method of `FuelTank`. `FuelTank` owns the `fuelLevel` property. The best thing is, if we decide to have the `Bicycle` class, it will not need to have the `topUpFuel` method.
+
+### Dependency Inversion Principle (DIP)
 
 _Any higher-level modules should not depend on lower-level modules, and both should depend on abstract modules._
+
 _Abstraction of modules should not depend on its implementation or details, but the implementation should depend on abstraction._
 
-When using Mongoose, We import a Model. This model implements an abstraction. All model will contain similar generic features such as `findOneAndUpdate`. The router handler does not depend on the Schema. If the Schema change in the way that it doesn't break the functionality of the route handler, the handler will not need modification.
+When using Mongoose, we import a Model. This model implements an abstraction. All models will contain similar generic methods such as `findOneAndUpdate`. Knowing that the object is a Model, the router handler can safely call `findOneAndUpdate`.
+
+The router handler does not depend on the Schema. If the Schema of the Model changes, the handler will not need modification, as it deals with the Model abstraction, not the details of the Schema.
 
 ```javascript
 const articleSchema = new mongoose.Schema(
@@ -409,5 +469,15 @@ router.patch(
 ```
 
 ## Exercises
+
+### LSP - Square and Rectangle
+
+Another common example could break LSP is that `Square` cannot extend the class `Rectangle`. Why do you think this is so?
+
+Write `Square` and `Rectangle` classes to explain the possible breaking of LSP.
+
+Violations of LSP, in practice, is only a problem when the code using these classes make the wrong assumptions. However, you cannot blame the user of the classes in this case because they expected the instance of the parent to be replaceable by the instance of the child.
+
+### Vending Machine lab
 
 Review your vending machine lab so far and discuss how you can apply the design principles. Can we refactor our existing code?
