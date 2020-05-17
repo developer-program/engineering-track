@@ -1,4 +1,5 @@
 # Install Bamboo on EC2 instance
+
 This page covers the basics setup to create a bamboo server on an EC2 instance connecting to an external db. It will not cover server hardening.
 
 ## Content
@@ -8,8 +9,8 @@ This page covers the basics setup to create a bamboo server on an EC2 instance c
 3. Configure Bamboo
 4. Start bamboo server with external DB
 
-
 ## Creating a Postgres instance
+
 1. Go to AWS console
 2. Select RDS
 3. Select "Create database"
@@ -20,13 +21,13 @@ This page covers the basics setup to create a bamboo server on an EC2 instance c
 Use PostgresSQL 10.11-R1, Bamboo support to version 10. [check supported version](https://confluence.atlassian.com/bamboo/supported-platforms-289276764.html#Supportedplatforms-Databases)
 
 Under Credential Settings
+
 - Enter Mastername and password.
 - instance: t2 micro
 - VPC: default vpc or create a new vpc
 - Password authentication
 - In connectivity, set `public accessible` raido button to yes
 - In Additional Configuration, add the `initial database name`
-
 
 ![create db](_media/initialDatabaseName.png)
 
@@ -53,16 +54,18 @@ Using t2.medium is below the recommended stats but just enough to run a server f
 
 ![recommended specs](_media/inboundRules.png)
 
-The instance will take awhile to be created. 
+The instance will take awhile to be created.
 
 ## Configure Bamboo
 
 ### connecting to instance
+
 `ssh -i <pem file> <EC2 instance>`
 
-
 ### install bamboo
+
 - after connecting to the instance
+
 ```bash
 mkdir bamboo
 cd bamboo
@@ -72,25 +75,29 @@ rm atlassian-bamboo-6.8.0.tar.gz
 ```
 
 - create a home folder for bamboo to store it's configurations
+
 ```bash
 mkdir home
 ```
 
 ### install java
+
 - after connecting to the instance
 
 ```bash
 sudo su
 apt update
-apt install openjdk-8-jre-headless 
+apt install openjdk-8-jre-headless
 java -version
 ```
 
 Java installed location
+
 - jdk: `/usr/lib/jvm/java-1.8.0-openjdk-amd64/bin`
 - jre: `/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre`
 
 ### configure java
+
 let bamboo know about JDK and JRE location
 In `/home/ubuntu/bamboo/atlassian-bamboo-6.8.0/bin/setenv.sh`
 
@@ -100,6 +107,7 @@ export JRE_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre
 ```
 
 ### configure home folder
+
 In the file `<BAMBOO_INSTALL>/atlassian-bamboo-6.8.0/atlassian-bamboo/WEB-INF/classes/bamboo-init.properties` add the bamboo home location
 
 ```
@@ -107,11 +115,13 @@ bamboo.home=/home/ubuntu/bamboo/home
 ```
 
 ### starting the server
+
 start the server `/home/ubuntu/bamboo/atlassian-bamboo-6.8.0/bin/start-bamboo.sh`
 
 Visit `<EC2 Public DNS>:8085` on any [supported browser](https://confluence.atlassian.com/bamboo/supported-platforms-289276764.html#Supportedplatforms-Webbrowsers) of your choice.
 
 ## Start bamboo server with external DB
+
 - get licence key from the Atlassian website
 - enter the licence key
 - select custom installation

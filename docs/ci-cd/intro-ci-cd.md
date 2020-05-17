@@ -10,7 +10,7 @@
 
 An agreement on what needs to be completed before a story is fully completed and ready to be ship to the user. The agreement is set by all state holders(Developers(Dev), Quality Analyst(QA), Business Analyst(BA), Product Owner(PO)).
 
-### Benefit
+### Benefit of having DOD
 
 1. DOD gives everyone in the team the same expectations on what is included and what is not in a user story.
 2. Gives team more clarity during estimations on how much a team can likely complete
@@ -26,7 +26,7 @@ An agreement on what needs to be completed before a story is fully completed and
 5. All behaviors and edge cases are tested by QA
 6. The PO understands the scope of the changes and have verified
 
-### Side Note:
+### Side Note
 
 1. DOD should contain things that are only really required by the story
 2. Not all stories will have the same DOD
@@ -75,7 +75,7 @@ You’re doing continuous delivery when:
 2. Deploy to server
 3. Run automated test in a _production like_ environment. Typically also running end to end test.
 
-### Benefits
+### Benefits of CD
 
 1. With incremental changes in code, we can easily identify the necessary changes needs to be done in the deployment pipeline for a successful deployment.
 2. Fast feedback from user and state holders, more often than not, we might build a system that we thought will help the user but it actually doesn't. Fast deployment cycle allow companies to get feedback from the use faster.
