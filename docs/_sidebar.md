@@ -25,6 +25,7 @@
 - **Delivering software**
 
   - [Clean code](delivering-software/clean-code)
+  - [Tech Debt](delivering-software/tech-debt)
   - [Refactoring](delivering-software/refactoring)
 
 - **AWS Basics**
