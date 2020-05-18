@@ -59,9 +59,11 @@
   - [Deploy React using codepipeline](ci-cd/aws-code-pipeline.md)
   - [What is Bamboo](ci-cd/introduction)
   - [Install Bamboo on Mac](ci-cd/installation)
-  - [Install Bamboo on EC2](ci-cd/installationRemote)
+  - [Install Bamboo on Windows](ci-cd/installationWindows)
+  - [[skip] Install Bamboo on EC2](ci-cd/installationRemote)
   - [Creating a Plan](ci-cd/creating-a-project.md)
   - [Creating a build agent](ci-cd/build-agent.md)
+  - [Running test](ci-cd/test-stage.md)
 
 <!-- Uncomment right before project week, 1st June -->
 <!-- - **Agile**
