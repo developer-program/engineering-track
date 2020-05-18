@@ -359,6 +359,8 @@ By doing so, these patterns increase flexibility in carrying out this communicat
 
 Create an interface that on input, invoke certain methods or functions relating to it.
 
+In this example, `Remote` class is called the Invoker in the command pattern, and the `Television` is the Receiver.
+
 ```js
 class Television {
   setChannel(channel) {
@@ -399,28 +401,105 @@ remote.addCommand("decrease volume", {
 remote.execute("add volume");
 ```
 
+![Command pattern](https://refactoring.guru/images/patterns/diagrams/command/solution2-en-2x.png)
+
 ### Observer
 
 ![observer pattern](https://gblobscdn.gitbook.com/assets%2F-LBJBL3Fj_tcfkvqLj9P%2F-LCW3Peyo9sS-PfvMbi8%2F-LCW3Upla259bzKfYGzk%2Fobserver_pattern_diagram.png?alt=media)
 
-Picture from https://refactoring.guru/design-patterns/observer
+![subscriber notifying observer](https://refactoring.guru/images/patterns/diagrams/observer/solution2-en-2x.png)
+
+Pictures from https://refactoring.guru/design-patterns/observer
 
 It provides a way to react to events happening in other objects without coupling to their classes.
 
 The observer pattern defines a one-to-many dependency between objects so that when the subject (a.k.a. publisher / observerable) object changes state, all its observers (a.k.a. subscribers) are notified and updated automatically.
 
 Subjects (Publishers) and Observers (Subscribers) know nothing about each, other than each others' interface (i.e. the methods that they have).
-You can push or pull data from the Observable when using the pattern (pull is considered more “correct”).
+You can push or pull data from the Publisher/ Observerable when using the pattern (pull is considered more “correct”).
 
-This is common in GUI programming, where we often have to subscribe to click events etc.
+Many different subscriber / observer classes could be interested in tracking events of the same publisher / subject class. You will not want to couple the publisher to all of those classes. You might not even know which subscriber classes would subscribe to your publisher beforehand as the subscription is done dynamically or used by other people.
+
+Thus it is important that the subscriber class implements some interface (some fixed methods) so that the publisher class is not coupled with a concrete class.
+
+In this example:
+`Fridge` is the Subject / Publisher, `WifeObserver` and `HusbandObserver` are the observer / subscriber classes.
+
+```js
+class Fridge {
+  numberOfDrinks = 0; // state of subject we want to observe, it can be anything
+
+  observers = []; // it is also possible to categorise observers / subscribers by event type but this is a simplified version
+
+  attach(observer) {
+    const isExist = this.observers.includes(observer);
+    if (isExist) {
+      return console.log("Fridge: observer has been attached");
+    }
+
+    console.log("Fridge: attached an observer");
+    this.observers.push(observer);
+  }
+
+  detach(observer) {
+    const observerIndex = this.observers.indexOf(observer);
+    if (observerIndex === -1) {
+      return console.log("Fridge: observer does not exist");
+    }
+
+    this.observers.splice(observerIndex, 1);
+    console.log("Fridge: detached an observer.");
+  }
+
+  notify() {
+    this.observers.forEach((observer) => {
+      observer.update(this);
+    });
+
+    console.log("Fridge: notified observers");
+  }
+
+  removeDrink() {
+    this.numberOfDrinks -= 1;
+    console.log(`Subject: My state has just changed to: ${this.state}`);
+    this.notify();
+  }
+}
+
+class WifeObserver {
+  update(fridge) {
+    if (fridge.numberOfDrinks <= 0) {
+      console.log("WifeObserver: Let's get some drinks");
+    }
+  }
+}
+
+class HusbandObserver {
+  update(fridge) {
+    if (fridge.numberOfDrinks === 1) {
+      console.log("HusbandObserver: Let's share the last drink");
+    }
+  }
+}
+```
+
+This is common in GUI programming, where we often have to subscribe to click events etc. For example, in your button classes, and you want to notify clients whenever a user clicks a button. You can add the subscribers to the buttonClick event.
+
+An example of the observable pattern intergrated into libraries / framework is React with RxJS. RxJS is a library for functional reactive programming. It takes the observable pattern to the next level.
+
+A very good reason to use RxJS is that if many events (http requests, keystrokes, cursor movement) happens asynchronously and you would like to respond to those events, it will make it easier to program.
+
+A [live example here](https://codepen.io/mmiszy/pen/gGRejM) from https://x-team.com/blog/rxjs-observables/.
 
 ### Strategy
 
 This pattern is used to handle similar actions applied to different data, where every data type needs special handling.
 
-The original class, called `context`, must have a field for storing a reference to a strategy. The `context` delegates the work to a strategy object instead of executing it on its own.
+Let's say there is a class that has a massive conditional operator that switches between different variants of the same algorithm. For example if `shape === circle` then calculateArea with Math.PI times radius squared. If `shape === rectangle` then calculateArea with width times height etc. Instead of having the massive conditional operator, you can use the strategy pattern.
 
-```javascript
+The original class, called `context`, should have a property for storing a reference to a strategy. The context class will not choose a strategy, instead, it is passed to it by the client calling the context.
+
+```js
 class ShapeCalculations {
     constructor(shape, strategy) {
         this.shape = shape;
@@ -458,13 +537,69 @@ circleCalculate.calculateArea();
 
 Use the factory pattern in vending machine for deciding whether to make a Cup or Can. We can make a class called `ContainerFactory`.
 
-### Vending Machine with commands
+### Vending Machine with command pattern
 
-Freshie the startup wants to have a command system for the vending machine. 
+First, Freshie the startup wants to add a new feature to the vending machine:
+We should be able to refund money and not buy any item.
+
+```js
+it("should refund money when not buying item", () => {
+  vendingMachine.insertMoney([[], [200]]);
+  expect(vendingMachine.refundMoney()).toEqual([200]);
+});
+```
+
+Now, Freshie the startup wants to have a command system for the vending machine, because users will be able to control the vending machine through the GUI or even through their mobile phone.
+
+The GUI (or mobile phone) does not need to know what are the concrete objects being called, but only needs to know the command that it will fire. (reducing coupling between GUI and the business logic layer). Using the command pattern also allows us to add more commands anytime. (Open-closed principle).
+
 Using the Command pattern, implement a command system for the Vending Machine.
 
 Suggested commands:
-1. Dispense item and change
-2. Change price of an item
-3. Return / refund money (without buying any item)
 
+1. Choose item to buy - "buy OJ", "buy CW"
+2. Return / refund money (without buying any item) - "refund"
+
+## Vending Machine with observable pattern
+
+Freshie really needs another feature, which is to keep track of the number of containers (cups or cans) left in the vending machine. If there are not enough containers, there will be no drink.
+
+```js
+it("should return not enough cups and change when cups run out", () => {
+  vendingMachine.addContainer("CUP");
+  vendingMachine.insertMoney([[], [200]]);
+  expect(vendingMachine.dispenseDrinkAndChange("CUP", "OJ")).toEqual(["OJ"]);
+  vendingMachine.insertMoney([[], [200]]);
+  expect(vendingMachine.dispenseDrinkAndChange("CUP", "OJ")).toEqual([
+    "not enough cups",
+    200,
+  ]);
+});
+```
+
+With this feature, we now can implement the observable pattern.
+
+Vending machine should be our Subject. We want to observe the number of containers and if any of the containers run out, we want the `Admin` class to be notified. An instance of the `Admin` class is a Observer.
+
+To test the update of the observers of vending machine:
+
+```js
+it("should update observers when running out of containers", () => {
+  const mockUpdate = jest.fn();
+  const mockObserver = jest.fn().mockImplementation(() => {
+    return { update: mockUpdate };
+  });
+
+  vendingMachine.attach(mockObserver);
+  vendingMachine.addContainer("CUP");
+  vendingMachine.insertMoney([[], [200]]);
+  vendingMachine.dispenseDrinkAndChange("CUP", "OJ");
+  expect(mockObserver.update).toHaveBeenCalledTimes(1);
+
+  vendingMachine.detach(mockObserver);
+  vendingMachine.addContainer("CUP");
+  vendingMachine.insertMoney([[], [200]]);
+  vendingMachine.dispenseDrinkAndChange("CUP", "OJ");
+  expect(mockObserver.update).not.toHaveBeenCalled();
+});
+```
