@@ -65,6 +65,7 @@
   - [Creating a Plan](ci-cd/creating-a-project.md)
   - [Creating a build agent](ci-cd/build-agent.md)
   - [Running test](ci-cd/test-stage.md)
+  - [Using Artifacts](ci-cd/build-agent.md)
 
 <!-- Uncomment right before project week, 1st June -->
 <!-- - **Agile**
