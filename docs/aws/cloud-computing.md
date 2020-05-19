@@ -68,3 +68,9 @@ Name the number of Service and explain they do
 1. Name 5 Saas
 2. Name 3 PaaS
 3. Name 3 IaaS
+
+## Further Readings
+
+### Comparing different IaaS
+
+[Gartner report](https://www.gartner.com/doc/reprints?id=1-1CMAPXNO&ct=190709&st=sb)

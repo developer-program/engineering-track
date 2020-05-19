@@ -35,7 +35,7 @@ Examples of Region code:
 
 ### Availability Zone
 
-An availability zone can be think of as a data center. Each AZ is identifiable by the region code follow by letter.
+An availability zone can be thought of as a data center. Each AZ is identifiable by the region code follow by letter.
 
 Availability Zone in Singapore(ap-southeast-1)
 
@@ -45,10 +45,20 @@ Availability Zone in Singapore(ap-southeast-1)
 
 [Find Regions here](https://aws.amazon.com/about-aws/global-infrastructure/regions_az/)
 
-## Comparing to other IAAS
+### Edge Location
 
-[Gartner report](https://www.gartner.com/doc/reprints?id=1-1CMAPXNO&ct=190709&st=sb)
+Small data center for caching or storing static content to increase availability and increase speed for users to load frequent access contents.
 
-## Read more
+## Lab
+
+1. Explain the difference between Region and Edge Location
+2. Name 2 other regions and their Availability zone.
+3. In Australia
+
+- where is the Region located at?
+- how many AZs are there?
+- how many edge locations are there?
+
+## Further Readings
 
 [What is AWS](https://aws.amazon.com/what-is-aws/)
