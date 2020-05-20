@@ -55,7 +55,7 @@ Small data center for caching or storing static content to increase availability
 2. Name 2 other regions and their Availability zone.
 3. In Australia
 
-- where is the Region located at?
+- which state is the Region located at?
 - how many AZs are there?
 - how many edge locations are there?
 

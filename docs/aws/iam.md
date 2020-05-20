@@ -34,8 +34,6 @@ To separate your AWS management console and other's AWS management console, IAM 
 
 Note that signing in as IAM users and Root uses a different link.
 
-Take note that
-
 ## Setting Up Root Account
 
 When you first create an AWS account, Amazon recommends you to follow certain best practices.
@@ -50,7 +48,7 @@ By default, you don't have a root access key. A root access key is a key that al
 
 We can set up multiple factor authentication. AWS supports virtual MFA device or [U2F](https://www.yubico.com/authentication-standards/fido-u2f/) Security key.
 
-We can use a Virtual MFA applications. If you don't have one already, I will recommend the Google Autheticator. Download Google Autheticator on your IOS or android device. Click on + and Scan Bar Code. Following the instructions to get the 2 MFA code to finish setup.
+We can use a Virtual MFA applications. If you don't have one already, I will recommend the Google Authenticator. Download Google Authenticator on your IOS or android device. Click on + and Scan Bar Code. Following the instructions to get the 2 MFA code to finish setup.
 
 - Authy
 - Duo Mobile
@@ -99,7 +97,7 @@ Give specific user level such as `List`, `Read`, `Write`, `Permissions managemen
 
 ### Rotate Credentials Regularly
 
-- change your password regularly. Once in every 3 months or more/less frequent depends on how secure, you need it to be.
+- change your password regularly. Once in every 3 months or more/less frequent depends on how secure you need it to be.
 
 ### Remove Unused Credentials
 
@@ -115,4 +113,19 @@ You can set up cooperate SAML to allow IAM users to AWS account. As this is not 
 
 ## Lab
 
-Setup your own AWS account, you can create an email account and used to create an AWS account if you don't want to keep one.
+### [optional] Personal Account
+
+1. Setup your own AWS account, you can create an email account and use it to create a new AWS account and close the account if you don't want ot keep it. Required Credit Card.
+2. Get all security status green
+
+![green status](_media/iam_status_green.png)
+
+### Training Account
+
+This is a Follow along lab that requires instructor to share training accounts.
+
+1. Set up Password manager
+2. Set up 2FA on Password Manager
+3. Sharing account using Password Manager
+4. Generating and changing password
+5. Successfully Login

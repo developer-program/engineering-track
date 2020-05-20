@@ -32,7 +32,7 @@
 
   - [Cloud Computing](aws/cloud-computing.md)
   - [Introduction](aws/intro.md)
-  - [Creating Account](aws/creating-account.md)
+  - [[optiona]Creating Account](aws/creating-account.md)
   - [Identity and Access Management](aws/iam.md)
   - [Elastic Cloud Compute](aws/ec2.md)
   - [Elastic Load Balancer](aws/elb.md)

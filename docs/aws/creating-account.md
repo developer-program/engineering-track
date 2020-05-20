@@ -4,7 +4,7 @@
 2. Click on Create an AWS Account
    ![creates account](_media/create_account.png)
 
-3. Entry Credentials
+3. Enter Credentials
 4. You will need to enter a credit card detail
 5. confirm Identity with phone number
    ![confirm_identity](_media/confirm_identity.png)
