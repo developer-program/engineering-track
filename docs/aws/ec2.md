@@ -193,7 +193,7 @@ npm run build
 npx serve -s build
 ```
 
-if you have error regarding node not found, this might be because sudo resets its bath on debian based machine for security reasons.
+if you have error regarding node not found, this might be because sudo resets its path on debian based machine for security reasons.
 
 ```sh
 sudo env PATH=$PATH npm install

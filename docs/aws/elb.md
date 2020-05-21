@@ -5,10 +5,22 @@ Elastic Load Balancing automatically distributes incoming application traffic ac
 ## Main Purpose
 
 1. Distributes incoming traffic across multiple instances
-2. Only expose Load Balancer to public, other instances can set to only talk to load balancer.
+2. Only expose Load Balancer to public, other instances will only talk to the load balancer.
 3. Health Check to make sure it routes to services are up
 
-## 2 Types of ELB
+### Other benefits
+
+1. Health Check
+2. HTTPS
+3. Distrubute across AZs
+4. Stickiness
+
+### Client IP
+
+- Application will see the IP of the ELB
+- To get Client IP, use `X-Forwarded-for` header
+- To get Client Port, use `X-Forwarded-Proto` header
+- Cookie will be forwarded for you
 
 ### Application Load Balancer (ALB)
 
@@ -67,3 +79,7 @@ Go to the target group and you realise that the Registered targets are marked by
 ### Update Security Group to allow only from ALB
 
 To reduce the attack surface of our app, we can change the security group used by the EC2 instance and only allow if routes are from the load balancer and SSH.
+
+## Lab
+
+1. Configure an ELB that points to EC2 instance.

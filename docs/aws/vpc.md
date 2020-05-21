@@ -45,7 +45,7 @@ update the subnet associate,
 
 After connecting to the route table, we have successfully created a VPC that have a private and public subnet. with the public subnet able to connect to the internet.
 
-## Lab1
+## [Optional]Lab
 
 1. Create a new VPC with a CIDR block of 10.3.0.0/16
 2. Create 2 Subnet, a public and private, in different AZ with CIDR block (10.3.1.0/24, 10.3.2.0/24)
