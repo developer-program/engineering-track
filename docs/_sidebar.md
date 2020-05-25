@@ -4,6 +4,7 @@
   <!-- - [Project](/project) -->
 
 - **Cypress Test**
+
   - [Intro to Cypress](cypress/intro.md)
   - [Installation](cypress/installation.md)
   - [Folder Structure](cypress/folder-structure.md)
@@ -15,7 +16,8 @@
   - [Handling Inputs](cypress/handling-inputs.md)
   - [Page Object Pattern](cypress/page-object-pattern.md)
 
-* **Software Design**
+- **Software Design**
+
   - [Programming Paradigm](software-designs/programming-paradigm)
   - [Object-oriented Programming](software-designs/object-oriented-programming)
   - [Advanced OOP](software-designs/advanced-oop)
@@ -66,6 +68,9 @@
   - [Creating a build agent](ci-cd/build-agent.md)
   - [Running test](ci-cd/test-stage.md)
   - [Using Artifacts](ci-cd/build-agent.md)
+
+- **SonarQube**
+  - [Introduction](ci-cd/intro-to-sonarqube.md)
 
 <!-- Uncomment right before project week, 1st June -->
 <!-- - **Agile**
