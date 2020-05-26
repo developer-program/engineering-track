@@ -29,6 +29,8 @@
   - [Clean code](delivering-software/clean-code)
   - [Tech Debt](delivering-software/tech-debt)
   - [Refactoring](delivering-software/refactoring)
+  - [Git collab](delivering-software/git-collab)
+  - [Git advanced](delivering-software/git-advanced)
 
 - **AWS Basics**
 
