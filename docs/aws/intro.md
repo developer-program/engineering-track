@@ -13,7 +13,7 @@ The intent of the materials is to focus on fundamental concepts of the most comm
 - 2002, launch AWS internally
 - Amazon Leadership team acknowledge that the company has a strong Infrastructure that backed the success of Amazon.
 - Talks about the possibility for AWS to make these infrastructures available to Everyone. 2003.
-- 2006, launch of Simple Storage Service, Elastic Computer Cloud and Simple Queue Service.
+- 2006, launch of Simple Storage Service, Elastic Compute Cloud and Simple Queue Service.
 - CloudFront. Setup partnership with Netflix and Reddit and later NASA. 2009, launch S3 and EC2 in 22 regions. Offer AWS.
 - 2014, have 1.4 million servers in 28 availability zone.
 

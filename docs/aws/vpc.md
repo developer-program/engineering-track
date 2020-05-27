@@ -47,6 +47,8 @@ After connecting to the route table, we have successfully created a VPC that hav
 
 ## [Optional]Lab
 
+### lab1
+
 1. Create a new VPC with a CIDR block of 10.3.0.0/16
 2. Create 2 Subnet, a public and private, in different AZ with CIDR block (10.3.1.0/24, 10.3.2.0/24)
 
@@ -60,7 +62,7 @@ After connecting to the route table, we have successfully created a VPC that hav
 
 5. Try SSH into
 
-### optional
+### lab2
 
 1. Create an EC2 instance and attach to the newly created VPC on the Public subnet
    We can add an User Data to start Nginx on startup
