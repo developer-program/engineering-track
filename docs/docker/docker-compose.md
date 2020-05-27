@@ -30,6 +30,19 @@ You should see the Docker Compose version printed out.
          - "3001:3000"
    ```
 
+if this does not run try.
+The github issue can be found [here](https://github.com/facebook/create-react-app/issues/8688)
+
+```yml
+version: "3.7"
+services:
+  docker-react:
+    build: .
+    ports:
+      - "3001:3000"
+    stdin_open: true
+```
+
 2. Run the command
 
    ```sh
