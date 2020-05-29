@@ -15,7 +15,7 @@ If you would like to review the latest commits without causing merge conflicts, 
 
 ### Fixing merge conflict in VS Code
 
-![fix merge conflict](_media/fix-merge-conflict.png)
+![fix merge conflict](_media/gitcollab-fixMergeConflict.png)
 
 - Click on **Accept current change** to select the remote changes and delete your change
 - Click on **Accept incoming change** to select your changes and delete the changes from remote
@@ -50,20 +50,20 @@ There can be two types of pull requests:
 
 By default, we can create a PR from a branch. Click **compare across forks** to create a PR from a forked repository. It should look something like this:
 
-![create pull request](_media/createPullRequest.png)
+![create pull request](_media/gitcollab-createPullRequest.png)
 
 #### PR is open
 
 Example of an **open** Pull Request from a **forked** repository:
 
-![open pull request](_media/openPullRequest.png)
+![open pull request](_media/gitcollab-openPullRequest.png)
 
 A PR should have a good title and description that could summarise the PR.
 Sometimes, we can even have pull request templates for larger projects with many contributors. These templates will automatically load content into the description field when creating a new PR. Look at [an example here](https://blog.axosoft.com/enhancing-pull-request-descriptions-templates/).
 
 See Github help for more information for [PR templates](https://help.github.com/en/github/building-a-strong-community/creating-a-pull-request-template-for-your-repository).
 
-![pull request sidebar](_media/pullRequestSidebar.png)
+![pull request sidebar](_media/gitcollab-pullRequestSidebar.png)
 
 It is possible to assign, add labels and even add to a project (see Github Project Boards).
 
@@ -71,14 +71,14 @@ It is possible to assign, add labels and even add to a project (see Github Proje
 
 Go to any PR and click **Files Changed**.
 
-![review pull request](_media/reviewPullRequest.png)
+![review pull request](_media/gitcollab-reviewPullRequest.png)
 
 - Give general comments by clicking **Review Changes** on the top right corner
 - Click the `+` button on the line that you want to comment on. The review will be **pending** until you finally submit the review.
 
 You can require a review from contributors before merging any PR. These settings are at the branch protection rules.
 
-![branch protection rule](_media/branchProtectionRule.png)
+![branch protection rule](_media/gitcollab-branchProtectionRule.png)
 
 #### Merge and close a PR
 
@@ -90,7 +90,7 @@ There are two common git workflows.
 
 ### Trunk-based development
 
-![smaller trunk based](_media/smaller-trunk-based.png)
+![smaller trunk based](_media/gitcollab-smallerTrunkBased.png)
 (Image from https://trunkbaseddevelopment.com/)
 
 In trunk-based development (TBD), developers always check into one branch, typically the **master branch** also called the “trunk”.
@@ -105,7 +105,7 @@ Read https://www.thoughtworks.com/insights/blog/enabling-trunk-based-development
 
 #### Scaled Trunk-based development (optional)
 
-![scaled trunk based](_media/scaled-trunk-based.png)
+![scaled trunk based](_media/gitcollab-scaledTrunkBased.png)
 (Image from https://trunkbaseddevelopment.com/)
 
 You might wonder, in a larger team, how do we enforce the reviewing of pull requests if everyone pushes directly to the master branch? It is stil possible, with developers pushing to **short-lived** feature branches. The difference is that these feature branches do not last more than a few days and are not related to any specific versions.
@@ -136,7 +136,7 @@ Note: if switching between different work (that should be in another commit) rem
 
 ### Feature Branch
 
-![feature branch workflow](_media/feature-branch-workflow.png)
+![feature branch workflow](_media/gitcollab-featureBranchWorkflow.png)
 Feature branch workflow
 
 - Developers pull the latest master and branch out to their individual feature branch
