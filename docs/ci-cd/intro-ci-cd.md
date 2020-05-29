@@ -69,7 +69,7 @@ You’re doing continuous delivery when:
 3. Anybody can get fast, automated feedback on the production readiness of their systems any time somebody makes a change to them
 4. You can perform push-button deployments of any version of the software to any environment on demand
 
-### Creatie a automated deployment pipeline that
+### Create a automated deployment pipeline that
 
 1. Build executable
 2. Deploy to server
