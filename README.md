@@ -1,6 +1,6 @@
 # Engineering Track
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 A 6-week software engineering program
@@ -23,6 +23,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <table>
   <tr>
     <td align="center"><a href="https://jsstrn.me/"><img src="https://avatars2.githubusercontent.com/u/1199611?v=4" width="100px;" alt=""/><br /><sub><b>Jesstern Rays</b></sub></a><br /><a href="#content-jsstrn" title="Content">🖋</a> <a href="https://github.com/developer-program/engineering-track/commits?author=jsstrn" title="Documentation">📖</a> <a href="#example-jsstrn" title="Examples">💡</a> <a href="#ideas-jsstrn" title="Ideas, Planning, & Feedback">🤔</a></td>
+    <td align="center"><a href="https://github.com/elsonlim-tw"><img src="https://avatars1.githubusercontent.com/u/49974808?v=4" width="100px;" alt=""/><br /><sub><b>Elson</b></sub></a><br /><a href="#content-elsonlim-tw" title="Content">🖋</a></td>
   </tr>
 </table>
 
