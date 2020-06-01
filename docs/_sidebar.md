@@ -74,6 +74,9 @@
 - **SonarQube**
   - [Introduction](ci-cd/intro-to-sonarqube.md)
 
+- **Security**
+  - [OWASP](security/owasp.md)
+
 <!-- Uncomment right before project week, 1st June -->
 <!-- - **Agile**
   - [Project Definition](agile/project-fly.md) -->
