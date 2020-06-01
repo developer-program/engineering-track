@@ -16,6 +16,15 @@
         "example",
         "ideas"
       ]
+    },
+    {
+      "login": "elsonlim-tw",
+      "name": "Elson",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/49974808?v=4",
+      "profile": "https://github.com/elsonlim-tw",
+      "contributions": [
+        "content"
+      ]
     }
   ],
   "contributorsPerLine": 7,
