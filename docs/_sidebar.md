@@ -76,6 +76,7 @@
 
 - **Security**
   - [OWASP](security/owasp.md)
+  - [OWASP Top 10](security/owasp-top-10.md)
 
 <!-- Uncomment right before project week, 1st June -->
 <!-- - **Agile**
