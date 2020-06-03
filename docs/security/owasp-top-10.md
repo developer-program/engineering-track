@@ -14,7 +14,7 @@ Read more here: https://owasp.org/www-project-top-ten/
 
 Injection flaws, such as SQL, NoSQL, OS, and LDAP (Lightweight Directory Access Protocol) injection, occur when **untrusted data is sent to an interpreter as part of a command or query**. The attacker’s hostile data can trick the interpreter into executing unintended commands or accessing data without proper authorisation.
 
-## Examples
+## Activity
 
 To illustrate this, let's play a game.
 
@@ -43,8 +43,8 @@ To illustrate this, let's play a game.
 
 **More resources:**
 
-https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html
-https://cheatsheetseries.owasp.org/cheatsheets/LDAP_Injection_Prevention_Cheat_Sheet.html
+- https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html
+- https://cheatsheetseries.owasp.org/cheatsheets/LDAP_Injection_Prevention_Cheat_Sheet.html
 
 
 # 2. Broken authentication
@@ -64,7 +64,6 @@ Application functions related to authentication and session management are often
 - Implement Multi-factor Authentication (MFA) e.g. with [Okta](https://www.okta.com/products/adaptive-multi-factor-authentication/)
 - Implement (CAPTCHA/reCAPTCHA](https://anydifferencebetween.com/difference-between-captcha-and-recaptcha/)
 - Implement weak-password checks (e.g. minimum length, special characters/numbers required, check against well-known [weak/leaked passwords](https://github.com/danielmiessler/SecLists/tree/master/Passwords))
-- **Never store passwords in plaintext!** Always [salt and hash passwords](https://auth0.com/blog/adding-salt-to-hashing-a-better-way-to-store-passwords/), e.g. with [bcrypt](https://www.npmjs.com/package/bcryptjs)
 - Require reauthentication after every X hours, depending on the sensitivity of the data
 - For high-risk data (e.g. financial information), set sessions to **time out after 2-5 minutes of idle time**. It can be set to 15-30 minutes for low-risk applications. e.g. with [express-session](https://www.npmjs.com/package/express-session#cookiemaxage-1) and setting `maxAge`/`expires` value:
 
@@ -79,3 +78,33 @@ req.session.cookie.maxAge = hour
 - https://cheatsheetseries.owasp.org/cheatsheets/Credential_Stuffing_Prevention_Cheat_Sheet.html
 - https://github.com/danielmiessler/SecLists
 - https://auth0.com/blog/when-ux-equals-keeping-or-losing-the-customer/
+
+# 3. Sensitive data exposure
+
+Many web applications and APIs do not properly protect sensitive data, such as financial, healthcare, and Personally Identifiable Information (PII). Attackers may steal or modify such weakly protected data to conduct credit card fraud, identity theft, or other crimes. Sensitive data may be compromised without extra protection, such as encryption at rest or in transit, and requires special precautions when exchanged with the browser.
+
+## Examples
+
+1. Storing passwords in plain text
+
+## Activity
+
+Let's explore some more examples with some interactive exercises.
+
+1. [Token exposure in URL](https://application.security/free-application-security-training/owasp-top-10-token-exposure-in-url)
+1. [PII data in URL](https://application.security/free-application-security-training/owasp-top-10-personally-identifiable-data-in-url)
+
+Both of these instances can cause sensitive information to be exposed to third-party systems.
+
+## Prevention
+
+- **Always salt and hash passwords** (this is like adding extra data to the password and then scrambling it in a way that can't be reversed), e.g. with [bcrypt](https://www.npmjs.com/package/bcryptjs). This way, even if attackers gain access to the hashed passwords, they would not be able retrieve the original password, and would therefore be unable to log in to the affected user accounts. [Read more on why hashing **with a salt** is important.](https://auth0.com/blog/adding-salt-to-hashing-a-better-way-to-store-passwords/)
+- Do **not** transmit sensitive data through URL query parameters, e.g. `website.com/resource?auth_token=q3hd8nd8s` or `website.com/register?email=user@email.com`
+- Use [HTTP headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers) for transmitting sensitive data like session tokens
+- Configure web forms submitting PII data to use the `POST` method
+- Get SSL certificate from [Let's Encrypt](https://letsencrypt.org/), to enable secure connections with HTTPS. This means that all communications between your browser and the website are encrypted.
+
+**More resources**:
+
+- https://www.howtogeek.com/434930/why-are-companies-still-storing-passwords-in-plain-text/
+- https://www.izooto.com/blog/understanding-http-https-protocols
