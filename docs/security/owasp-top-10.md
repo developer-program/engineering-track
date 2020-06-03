@@ -106,7 +106,7 @@ Both of these instances can cause sensitive information to be exposed to third-p
 - Get SSL certificate from [Let's Encrypt](https://letsencrypt.org/), to enable secure connections with HTTPS. This means that all communications between your browser and the website are encrypted.
 - Force SSL: force some or all pages to be visited over SSL, e.g. with [express-force-ssl](https://github.com/battlejj/express-force-ssl)
 
-**More resources**:
+**More resources:**
 
 - https://www.howtogeek.com/434930/why-are-companies-still-storing-passwords-in-plain-text/
 - https://www.izooto.com/blog/understanding-http-https-protocols
@@ -118,7 +118,7 @@ This can lead to disclosure of confidential data, internal port scanning, [Serve
 
 ## Examples
 
-1. **Denial of Service** attack: XML Bomb, e.g. [Billion laughs attack](https://en.wikipedia.org/wiki/Billion_laughs_attack). It works by flooding the XML parser with a large document and taking up memory: 
+1. **Denial of Service** attack: XML Bomb, e.g. [Billion laughs attack](https://en.wikipedia.org/wiki/Billion_laughs_attack). It works by flooding the XML parser with a large document, which causes the application to consume all of its available memory until the process crashes: 
 ``` xml
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE lolz [
@@ -177,3 +177,25 @@ reader.setFeature("http://xml.org/sax/features/external-parameter-entities", fal
 - https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A4-XML_External_Entities_(XXE)
 - https://portswigger.net/web-security/xxe
 - https://cheatsheetseries.owasp.org/cheatsheets/XML_External_Entity_Prevention_Cheat_Sheet.html
+
+# 5. Broken Access Control
+
+Restrictions on what authenticated users are allowed to do are often not properly enforced. Attackers can exploit these flaws to access unauthorized functionality and/or data, such as access other users’ accounts, view sensitive files, modify other users’ data, change access rights, etc.
+
+## Examples
+
+1. **Modifying parameters in URL**: A user, Bob, logs in and views his own account settings at `website.com/users/66/settings`. He modifies the URL to `website.com/users/45/settings`, and is **able to view the account settings of another user** with id 45. This violates user 45's privacy as sensitive information is revealed (e.g. email address, phone number), and worse still, may be tampered with.
+2. **Elevation of privilege**: Acting as a user without being logged in, or acting as an admin when logged in as a user.
+
+## Prevention
+
+- With the exception of public resources, **deny access by default**
+- **Add proper authorisation checks** to ensure that the currently logged in user has the right to be granted permissions to CRUD the data in question
+- **JWT tokens should be invalidated on the server** after logout
+- Add **automated functional tests** to check access control. The initial set up for the test may take a long time, but manual testing will take even more time in the long run and is prone to human error. Since the tests will be run regularly, any breach will be caught early.
+
+<!-- # 
+## Examples
+## Activity
+## Prevention
+**More resources:** -->
