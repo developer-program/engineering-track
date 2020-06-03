@@ -85,7 +85,8 @@ Many web applications and APIs do not properly protect sensitive data, such as f
 
 ## Examples
 
-1. Storing passwords in plain text
+1. Passwords stored in plain text. A hacker gains access to the database and the username/password pairs. The hacker is able to use the passwords to log in to the affected user accounts.
+2. Passwords stored are hashed with a simple algorithm, and is not salted. A hacker gains access to the database and the username/hashed password pairs, and is able to [reverse the hash](https://md5hashing.net/) to obtain the original password. The hacker is able to use the passwords to log in to the affected user accounts. 
 
 ## Activity
 
@@ -103,6 +104,7 @@ Both of these instances can cause sensitive information to be exposed to third-p
 - Use [HTTP headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers) for transmitting sensitive data like session tokens
 - Configure web forms submitting PII data to use the `POST` method
 - Get SSL certificate from [Let's Encrypt](https://letsencrypt.org/), to enable secure connections with HTTPS. This means that all communications between your browser and the website are encrypted.
+- Force SSL: force some or all pages to be visited over SSL, e.g. with [express-force-ssl](https://github.com/battlejj/express-force-ssl)
 
 **More resources**:
 
