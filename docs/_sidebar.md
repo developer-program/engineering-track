@@ -72,7 +72,12 @@
   - [Using Artifacts](ci-cd/build-agent.md)
 
 - **SonarQube**
+
   - [Introduction](ci-cd/intro-to-sonarqube.md)
+
+- **Project**
+
+  - [Pairing Matrix](agile/pairing-matrix.md)
 
 - **Security**
   - [OWASP](security/owasp.md)
