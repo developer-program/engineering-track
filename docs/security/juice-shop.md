@@ -2,7 +2,7 @@
 
 It's time to exercise what we've learnt so far in the form of some healthy competition. Introducing... JUICE SHOP!
 
-<img src="_media/juice_shop.png" height="400" />
+<img src="../security/_media/juice_shop.png" height="400" />
 
 > [OWASP Juice Shop](https://owasp.org/www-project-juice-shop/) is probably the most modern and sophisticated insecure web application! It can be used in security trainings, awareness demos, CTFs* and as a guinea pig for security tools! Juice Shop encompasses vulnerabilities from the entire OWASP Top Ten along with many other security flaws found in real-world applications!
 
