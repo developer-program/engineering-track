@@ -36,15 +36,15 @@ To illustrate this, let's play a game.
 - Provide a **parameterised interface**
 - Do not use string-concatenated queries
 ![sql injection example](_media/sql_injection.png)
-- Validate user-supplied input. Read more [here](https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html).
+- Validate all user-supplied input
 - Validate input server-side with a **whitelist** instead of a blacklist. This way, you can define exactly what IS authorised - everything else is not authorised.
-- Use source code review tools
+- Use source code review tools, e.g. [Detectify](https://detectify.com/product/deep-scan). There are also many other tools (both open-source and commercial) available; [this](https://owasp.org/www-community/Source_Code_Analysis_Tools) is a good list to reference.
 - Add automated testing for all parameters, headers, URL, cookies, JSON, SOAP, and XML data inputs
 
 **More resources:**
 
 - https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html
-- https://cheatsheetseries.owasp.org/cheatsheets/LDAP_Injection_Prevention_Cheat_Sheet.html
+- https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html
 
 
 # 2. Broken authentication
