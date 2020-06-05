@@ -48,23 +48,22 @@ To illustrate this, let's play a game.
 - https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html
 - https://www.oreilly.com/library/view/securing-node-applications/9781491982426/ch01.html
 
-# 2. Broken authentication
+# 2. Broken Authentication
 
 Application functions related to authentication and session management are often implemented incorrectly, allowing attackers to compromise passwords, keys, or session tokens, or to exploit other implementation flaws to assume other users’ identities temporarily or permanently.
 
 ## Examples
 
-1. [Brute-force attack](https://en.wikipedia.org/wiki/Brute-force_attack): the attacker submits many passwords with the hope of eventually guessing correctly
+1. [Brute-force attack](https://en.wikipedia.org/wiki/Brute-force_attack): the attacker submits many passwords with the hope of eventually guessing correctly [[1]](https://www.youtube.com/watch?v=88PvZM4wJsY)
 1. [Credential stuffing](https://owasp.org/www-community/attacks/Credential_stuffing): the attacker uses a list of **breached username/password pairs** and gains access to user accounts
 1. [Session](https://auth0.com/docs/sessions/concepts/session-lifetime) timeout is not appropriately set up
 
 ## Prevention
 
 - Implement [rate limits](https://auth0.com/docs/connections/database/rate-limits) - if a user enters their password incorrectly more than X times consecutively from a single IP address, they will be blocked from logging into their account from that IP address
-- Implement Two-factor Authentication (2FA), e.g. Google Authenticator with a [TOTP (Time-based One-Time Password)](https://tools.ietf.org/html/rfc6238) generator like [Speakeasy](https://github.com/speakeasyjs/speakeasy)
+- Implement Two-factor Authentication (2FA), e.g. Google Authenticator with a [TOTP (Time-based One-Time Password)](https://tools.ietf.org/html/rfc6238) generator like [otplib](https://github.com/yeojz/otplib) or [Speakeasy](https://github.com/speakeasyjs/speakeasy)
 - Implement Multi-factor Authentication (MFA) e.g. with [Okta](https://www.okta.com/products/adaptive-multi-factor-authentication/)
-- Implement (CAPTCHA/reCAPTCHA](https://anydifferencebetween.com/difference-between-captcha-and-recaptcha/)
-- Implement weak-password checks (e.g. minimum length, special characters/numbers required, check against well-known [weak/leaked passwords](https://github.com/danielmiessler/SecLists/tree/master/Passwords))
+- Implement [CAPTCHA/reCAPTCHA](https://anydifferencebetween.com/difference-between-captcha-and-recaptcha/)
 - Require reauthentication after every X hours, depending on the sensitivity of the data
 - For high-risk data (e.g. financial information), set sessions to **time out after 2-5 minutes of idle time**. It can be set to 15-30 minutes for low-risk applications. e.g. with [express-session](https://www.npmjs.com/package/express-session#cookiemaxage-1) and setting `maxAge`/`expires` value:
 
@@ -73,9 +72,11 @@ var hour = 3600000
 req.session.cookie.expires = new Date(Date.now() + hour)
 req.session.cookie.maxAge = hour
 ```
+- Implement weak-password checks (e.g. minimum length, special characters/numbers required). On the front-end, you can guide the user with a password strength meter using a package like [react-password-strength](https://github.com/mmw/react-password-strength) [see [demo](https://reactpasswordstrength.netlify.app/)]
 
 **More resources:**
 
+- Weak passwords: https://github.com/danielmiessler/SecLists/tree/master/Passwords
 - https://cheatsheetseries.owasp.org/cheatsheets/Credential_Stuffing_Prevention_Cheat_Sheet.html
 - https://github.com/danielmiessler/SecLists
 - https://auth0.com/blog/when-ux-equals-keeping-or-losing-the-customer/
