@@ -81,7 +81,7 @@ req.session.cookie.maxAge = hour
 - https://github.com/danielmiessler/SecLists
 - https://auth0.com/blog/when-ux-equals-keeping-or-losing-the-customer/
 
-# 3. Sensitive data exposure
+# 3. Sensitive Data Exposure
 
 Many web applications and APIs do not properly protect sensitive data, such as financial, healthcare, and Personally Identifiable Information (PII). Attackers may steal or modify such weakly protected data to conduct credit card fraud, identity theft, or other crimes. Sensitive data may be compromised without extra protection, such as encryption at rest or in transit, and requires special precautions when exchanged with the browser.
 
@@ -196,8 +196,22 @@ Restrictions on what authenticated users are allowed to do are often not properl
 - **JWT tokens should be invalidated on the server** after logout
 - Add **automated functional tests** to check access control. The initial set up for the test may take a long time, but manual testing will take even more time in the long run and is prone to human error. Since the tests will be run regularly, any breach will be caught early.
 
-<!-- # 
+# 6. Security Misconfiguration
+
+Security misconfiguration is commonly a result of insecure default configurations, incomplete or ad hoc configurations, open cloud storage, misconfigured HTTP headers, and verbose error messages containing sensitive information. Not only must all operating systems, frameworks, libraries, and applications be securely configured, but they must be patched/upgraded in a timely fashion.
+
 ## Examples
-## Activity
+
+1. **Error handling reveals overly informative error messages to users.** For example, an attacker tries to log in with another user's email address but with the wrong password. An error message shows up: `Wrong password!`. This serves as confirmation to the attacker that this user account *does* exist in the system, and the attacker can continue trying to log in, e.g. through brute-force attack.
+1. **Unnecessary features are enabled or installed.** For example, the application may be trying to communicate with an external application/service that does not exist anymore. Attackers could mimic the non-existent application to establish a connection.
+1. Permissions are configured wrongly.
+
 ## Prevention
-**More resources:** -->
+
+- Provide more general error messages. Instead of `Wrong password!`, display `Invalid email/password`.
+- Remove all unnecessary features, components, frameworks, etc. 
+- Have an automated process for setting up configurations, so that all environments can be configured identically with minimal effort.
+
+**More resources:**
+
+- https://www.guardicore.com/2019/03/understanding-and-avoiding-security-misconfiguration/
