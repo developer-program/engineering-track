@@ -218,3 +218,54 @@ Security misconfiguration is commonly a result of insecure default configuration
 **More resources:**
 
 - https://www.guardicore.com/2019/03/understanding-and-avoiding-security-misconfiguration/
+
+# 7. Cross-Site Scripting XSS
+
+XSS vulnerabilities occur when web applications allow users to add custom code into a url path or onto a website that will be seen by other users. This vulnerability can be exploited to run malicious JavaScript code on a victim's browser.
+
+## Examples
+
+1. **Reflected XSS**: The application or API includes unvalidated and unescaped user input as part of HTML output. A successful attack can allow the attacker to execute arbitrary HTML and JavaScript in the victim's browser.
+
+For example, an attacker could send an email to a victim that appears to be from a trusted bank, with a link to that bank's website. This link could have some malicious JavaScript code tagged onto the end of the url. If the bank's site is not properly protected against cross-site scripting, then that malicious code will be run in the victim's web browser when they click on the link.
+
+``` html
+https://xyz-bank.com/status?message=Transaction+successful
+
+=> <p>Status: Transaction successful.</p>
+```
+
+An attacker can construct an attack like this:
+
+``` html
+https://xyz-bank.com/status?message=<script>/*+Bad+stuff+here...+*/</script>
+
+=> <p>Status: <script>/* Bad stuff here... */</script></p>
+```
+
+2. **Stored XSS**: The application or API stores unsanitized user input that is viewed at a later time by another user or an administrator. Although it is similar to Reflected XSS, Reflected XSS is only activated when the malicious link is accessed. Stored XSS is persisted in the application, and therefore is often considered more damaging, and a critical risk.
+
+For example, an attacker can add a malicious script into a comment on a blog post.
+
+3. **DOM XSS**: JavaScript frameworks, single-page applications, and APIs that dynamically include attacker-controllable data to a page are vulnerable to DOM XSS. Ideally, the application would not send attacker-controllable data to unsafe JavaScript APIs.
+
+For example, an attacker can hijack another user's session by retrieving the user's sessions ID from their cookie:
+
+![session hijack example](_media/session_hijacking.png)
+
+## Activity
+
+1. [Reflected XSS](https://application.security/free-application-security-training/owasp-top-10-reflected-cross-site-scripting)
+1. [Stored XSS](https://application.security/free-application-security-training/owasp-top-10-stored-cross-site-scripting)
+
+## Prevention
+
+- Use modern frameworks that automatically escape XSS by design, such as the latest ReactJS. Learn the limitations of each framework's XSS protection and appropriately handle the use cases which are not covered.
+- Escape untrusted HTTP requests.
+- Sanitise user-input HTML, e.g. with [dompurify](https://www.npmjs.com/package/dompurify)
+
+**More resources:**
+
+- https://portswigger.net/web-security/cross-site-scripting
+- https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html
+- https://cheatsheetseries.owasp.org/cheatsheets/DOM_based_XSS_Prevention_Cheat_Sheet.html
