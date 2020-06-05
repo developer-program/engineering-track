@@ -33,9 +33,12 @@ To illustrate this, let's play a game.
 5. Follow the game instructions! You'll need to locate the vulnerability, and identify the correct solution.
 
 ## Prevention
-- Do not use string-concatenated queries
+- Do not use string-concatenated queries:
+
 ![sql injection example](_media/sql_injection.png)
+
 - Provide a **parameterised interface**:
+
 ![parameterised query example](_media/parameterised_query.png)
 - Validate all user-supplied input
 - Validate input server-side with a **whitelist** instead of a blacklist. This way, you can define exactly what IS authorised - everything else is not authorised.
@@ -209,7 +212,7 @@ Security misconfiguration is commonly a result of insecure default configuration
 ## Prevention
 
 - Provide more general error messages. Instead of `Wrong password!`, display `Invalid email/password`.
-- Remove all unnecessary features, components, frameworks, etc. 
+- **Security hardening**. Remove all unnecessary features, components, services, pages, accounts, privileges, frameworks, etc. This will help reduce the application's surface of vulnerability. The fewer functions a system has, the more secure it is.
 - Have an automated process for setting up configurations, so that all environments can be configured identically with minimal effort.
 
 **More resources:**
