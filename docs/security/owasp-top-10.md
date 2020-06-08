@@ -66,7 +66,7 @@ Application functions related to authentication and session management are often
 - Implement [rate limits](https://auth0.com/docs/connections/database/rate-limits) - if a user enters their password incorrectly more than X times consecutively from a single IP address, they will be blocked from logging into their account from that IP address
 - Implement Two-factor Authentication (2FA), e.g. Google Authenticator with a [TOTP (Time-based One-Time Password)](https://tools.ietf.org/html/rfc6238) generator like [otplib](https://github.com/yeojz/otplib) or [Speakeasy](https://github.com/speakeasyjs/speakeasy)
 - Implement Multi-factor Authentication (MFA) e.g. with [Okta](https://www.okta.com/products/adaptive-multi-factor-authentication/)
-- Implement [CAPTCHA/reCAPTCHA](https://anydifferencebetween.com/difference-between-captcha-and-recaptcha/)
+- Implement CAPTCHA (Completely Automated Public Turing test to tell Computers and Humans Apart) or reCAPTCHA [v2](https://developers.google.com/recaptcha/docs/versions#recaptcha_v2_im_not_a_robot_checkbox) / [v3](https://www.google.com/recaptcha/intro/v3.html)
 - Require reauthentication after every X hours, depending on the sensitivity of the data
 - For high-risk data (e.g. financial information), set sessions to **time out after 2-5 minutes of idle time**. It can be set to 15-30 minutes for low-risk applications. e.g. with [express-session](https://www.npmjs.com/package/express-session#cookiemaxage-1) and setting `maxAge`/`expires` value:
 
