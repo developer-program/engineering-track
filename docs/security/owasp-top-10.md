@@ -269,3 +269,29 @@ For example, an attacker can hijack another user's session by retrieving the use
 - https://portswigger.net/web-security/cross-site-scripting
 - https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html
 - https://cheatsheetseries.owasp.org/cheatsheets/DOM_based_XSS_Prevention_Cheat_Sheet.html
+
+# 8. Insecure Deserialisation
+
+Insecure deserialisation often leads to remote code execution. Even if deserialisation flaws do not result in remote code execution, they can be used to perform attacks, including replay attacks (a form of network attack in which a valid data transmission is maliciously or fraudulently repeated or delayed), injection attacks, and privilege escalation (See *Broken Access Control*) attacks. 
+
+## Examples
+
+To understand insecure deserialisation, we first need to understand what serialisation is.
+
+**Serialisation** is a way to store an object or structure as text that can be easily stored and transmitted, e.g. `{"username":"player one","score":4234}`
+
+When the serialised data is transmitted back to the server, the server will perform **deserialisation**. If, however, the data retrieved is not validated/sanitised before deserialisation, the server may end up running a malicious script from an attacker.
+
+[**This video**](https://youtu.be/EzOquQNQAUs?t=7) illustrates the concept clearly.
+
+## Prevention
+
+- Do not accept serialised objects from untrusted sources, if possible
+- Validate all user-supplied input (again!)
+- Implement integrity checks such as digital signatures on any serialised objects to prevent hostile object creation or data tampering
+- Restrict/monitor incoming and outgoing network connectivity from containers or servers that deserialise
+- Monitor deserialisation - send an alert if a user deserialises constantly
+
+**More resources:**
+
+- https://owasp.org/www-project-proactive-controls/v3/en/c5-validate-inputs (we have seen multiple times that validating user input is a key method of prevention)
