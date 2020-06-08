@@ -286,12 +286,36 @@ When the serialised data is transmitted back to the server, the server will perf
 
 ## Prevention
 
-- Do not accept serialised objects from untrusted sources, if possible
+- Do not accept serialised objects from untrusted sources, if possible.
 - Validate all user-supplied input (again!)
-- Implement integrity checks such as digital signatures on any serialised objects to prevent hostile object creation or data tampering
-- Restrict/monitor incoming and outgoing network connectivity from containers or servers that deserialise
-- Monitor deserialisation - send an alert if a user deserialises constantly
+- Implement integrity checks such as digital signatures on any serialised objects to prevent hostile object creation or data tampering.
+- Restrict/monitor incoming and outgoing network connectivity from containers or servers that deserialise.
+- Monitor deserialisation - send an alert if a user deserialises constantly.
 
 **More resources:**
 
 - https://owasp.org/www-project-proactive-controls/v3/en/c5-validate-inputs (we have seen multiple times that validating user input is a key method of prevention)
+- https://cheatsheetseries.owasp.org/cheatsheets/Deserialization_Cheat_Sheet.html
+
+# 9. Using Components with Known Vulnerabilities
+
+Components, such as libraries, frameworks, and other software modules, run with the same privileges as the application. If a vulnerable component is exploited, such an attack can facilitate serious data loss or server takeover. Applications and APIs using components with known vulnerabilities may undermine application defenses and enable various attacks and impacts.
+
+## Examples
+
+Equifax is one of the three main credit rating bureaus in the US. In May 2017, there was a major data breach involving Personally Identifiable Information (PII) of 143 million U.S. consumers, which is nearly half of the entire US population. [Read more about the infamous **Equifax breach**](https://resources.whitesourcesoftware.com/blog-whitesource/the-equifax-breach-who-s-to-blame).
+
+The breach was executed through a vulnerability in an extremely popular open source library - Apache Struts - used by thousands of organizations.
+
+The vulnerability, which was scored as *critical*, was disclosed on March 7, and patched on the very same day – meaning a secured version of Apache Struts was available for developers to update any vulnerable version they might have, since March - 2 months before the Equifax breach happened.
+
+## Prevention
+
+- Continuously inventory the versions of both client-side and server-side components (e.g. frameworks, libraries) that you use, as well as their dependencies, using tools like [DependencyCheck](https://github.com/jeremylong/DependencyCheck).
+- Use a tool like [Dependabot](https://dependabot.com/) for automated dependency updates. It will look for outdated or insecure requirements, and open pull requests to update the offending dependency.
+- Remove unused dependencies, unnecessary features, components, files, and documentation.
+- Subscribe to email alerts for security vulnerabilities related to components you use.
+
+**More resources:**
+
+- The Unfortunate Reality of Insecure Libraries: https://cdn2.hubspot.net/hub/203759/file-1100864196-pdf/docs/Contrast_-_Insecure_Libraries_2014.pdf
