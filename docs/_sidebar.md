@@ -77,13 +77,16 @@
 
 - **Project**
 
+  <!-- - [Project Definition](agile/project-fly.md) -->
+
   - [Pairing Matrix](agile/pairing-matrix.md)
 
 - **Security**
+
   - [OWASP](security/owasp.md)
   - [OWASP Top 10](security/owasp-top-10.md)
   - [OWASP Juice Shop](security/juice-shop.md)
 
-<!-- Uncomment right before project week, 1st June -->
-<!-- - **Agile**
-  - [Project Definition](agile/project-fly.md) -->
+- **Kubernetes**
+
+  - [Intro to Architecture](intro-k8s/intro-to-architecture.md)
