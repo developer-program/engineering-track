@@ -45,5 +45,33 @@ Next, **decide on who will be the first Driver**. The other person will be the N
 
 ### Tips
 
-1. Explore all the pages and functionalities of Juice Shop.
-1. Find the hidden scoreboard. This will contain a list of vulnerabilities that you can catch for this exercise.
+- Explore all the pages and functionalities of Juice Shop.
+- Find the hidden scoreboard. This will contain a list of vulnerabilities that you can catch for this exercise.
+
+Focus on these challenges first, as they are closely related to what we have learnt:
+
+**Injection:**
+1. Login Bender ^
+2. Login Jim ^
+3. Login Admin ^
+
+**Broken Authentication:**	
+1. Password Strength: Log in with the administrator's user credentials without previously changing them or applying SQL Injection. ^
+
+**Sensitive Data Exposure:**
+1. Confidential Document: Access a confidential document.
+2. Exposed Metrics: Find the endpoint that serves usage data to be scraped by a popular monitoring system.
+
+**Broken Access Control:**
+1. Admin Section: Access the administration section of the store.
+2. Five-Star Feedback: Get rid of all 5-star customer feedback.
+3. Forged feedback: Post some feedback in another users name. ^
+
+**Security Misconfiguration:**
+1. Error Handling: Provoke an error that is neither very gracefully nor consistently handled.
+
+**XSS:**
+1. Bonus Payload ^
+2. DOM XSS ^ 
+
+*^ Tutorial available in scoreboard.*

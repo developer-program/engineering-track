@@ -219,6 +219,7 @@ Security misconfiguration is commonly a result of insecure default configuration
 ## Prevention
 
 - Provide more general error messages. Instead of `Wrong password!`, display `Invalid email/password`.
+- Display custom error page instead of displaying the stack trace to the user.
 - **Security hardening**. Remove all unnecessary features, components, services, pages, accounts, privileges, frameworks, etc. This will help reduce the application's surface of vulnerability. The fewer functions a system has, the more secure it is.
 - Have an automated process for setting up configurations, so that all environments can be configured identically with minimal effort.
 
