@@ -76,6 +76,13 @@ req.session.cookie.expires = new Date(Date.now() + hour)
 req.session.cookie.maxAge = hour
 ```
 - Implement weak-password checks (e.g. minimum length, special characters/numbers required). On the front-end, you can guide the user with a password strength meter using a package like [react-password-strength](https://github.com/mmw/react-password-strength) [see [demo](https://reactpasswordstrength.netlify.app/)]
+- Allow pasting into password fields (so that users can use a password manager like [LastPass](https://www.lastpass.com/), [1Password](https://1password.com/), or [KeePass](https://keepass.info/). These tools help generate secure passwords and stores them in a password vault.)
+
+## Activity
+
+1. Check if your email address has previously been exposed in data breaches [here](https://haveibeenpwned.com/).
+1. Check if your password has previously been exposed in data breaches [here](https://haveibeenpwned.com/Passwords).
+1. Install `Authy` on your desktop/phone, or `Google Authenticator` on your phone. [Follow these steps](https://help.github.com/en/github/authenticating-to-github/configuring-two-factor-authentication) to set up 2FA on your Github account.
 
 **More resources:**
 
