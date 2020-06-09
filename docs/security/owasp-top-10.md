@@ -327,3 +327,29 @@ The vulnerability, which was scored as *critical*, was disclosed on March 7, and
 **More resources:**
 
 - The Unfortunate Reality of Insecure Libraries: https://cdn2.hubspot.net/hub/203759/file-1100864196-pdf/docs/Contrast_-_Insecure_Libraries_2014.pdf
+
+# 10. Insufficient Logging & Monitoring
+
+Insufficient logging and monitoring, coupled with missing or ineffective integration with incident response, **allows attackers to further attack systems**, maintain persistence, pivot to more systems, and tamper, extract, or destroy data. Most breach studies show time to detect a breach is over 200 days, typically detected by external parties rather than internal processes or monitoring.
+
+## Examples
+
+1. Auditable events, such as logins, failed logins, and high-value transactions are not logged.
+1. Logs of applications and APIs are not monitored for suspicious activity.
+1. Warnings and errors generate no, inadequate, or unclear log messages.
+1. Appropriate alerting thresholds and response escalation processes are not in place or effective.
+1. Penetration testing and scans by Vulnerability Scanning Tools do not trigger alerts.
+
+## Prevention
+
+- Ensure all login, access control failures, and server-side input validation failures can be **logged with sufficient user context to identify suspicious or malicious accounts**, and held for sufficient time to allow delayed forensic analysis.
+- Ensure that logs are generated in a format that can be easily consumed by a centralized log management solutions.
+- Establish effective monitoring and alerting such that suspicious activities are detected and responded to in a timely fashion.
+- Establish or adopt an incident response and recovery plan.
+- Ensure high-value transactions have an audit trail with integrity controls to prevent tampering or deletion, e.g. append-only database tables, or
+- Use external logging services like [timber.io](https://timber.io/) or [papertrail](https://www.papertrail.com/) to ensure that even if attackers tamper with the system logs, its copy will be saved somewhere else.
+
+**More resources:**
+
+- Vulnerability Scanning Tools: https://owasp.org/www-community/Vulnerability_Scanning_Tools
+- https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A10-Insufficient_Logging%252526Monitoring
