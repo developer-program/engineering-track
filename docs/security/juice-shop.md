@@ -48,7 +48,9 @@ Next, **decide on who will be the first Driver**. The other person will be the N
 - Explore all the pages and functionalities of Juice Shop.
 - Find the hidden scoreboard. This will contain a list of vulnerabilities that you can catch for this exercise.
 
-Focus on these challenges first, as they are closely related to what we have learnt:
+**Focus on these challenges first**, as they are closely related to what we have learnt:
+
+*^ Tutorial available in scoreboard.*
 
 **Injection:**
 1. Login Bender ^
@@ -56,7 +58,7 @@ Focus on these challenges first, as they are closely related to what we have lea
 3. Login Admin ^
 
 **Broken Authentication:**	
-1. Password Strength: Log in with the administrator's user credentials without previously changing them or applying SQL Injection. ^
+1. Password Strength ^: Log in with the administrator's user credentials without previously changing them or applying SQL Injection.
 
 **Sensitive Data Exposure:**
 1. Confidential Document: Access a confidential document.
@@ -65,13 +67,19 @@ Focus on these challenges first, as they are closely related to what we have lea
 **Broken Access Control:**
 1. Admin Section: Access the administration section of the store.
 2. Five-Star Feedback: Get rid of all 5-star customer feedback.
-3. Forged feedback: Post some feedback in another users name. ^
+3. Forged feedback ^: Post some feedback in another users name.
 
 **Security Misconfiguration:**
 1. Error Handling: Provoke an error that is neither very gracefully nor consistently handled.
 
 **XSS:**
-1. Bonus Payload ^
-2. DOM XSS ^ 
+1. DOM XSS ^: Perform a DOM XSS attack with ```<iframe src="javascript:alert(`xss`)">```
+1. Bonus Payload ^: Use the bonus payload ```<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/771984076&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>``` in the DOM XSS challenge
+1. Reflected XSS: Perform a reflected XSS attack with ```<iframe src="javascript:alert(`xss`)">```
+1. Client-side XSS Protection: Perform a persisted XSS attack with ```<iframe src="javascript:alert(`xss`)">``` bypassing a client-side security mechanism.
 
-*^ Tutorial available in scoreboard.*
+**Improper Input Validation:** (optional)
+1. Admin Registration: Register as a user with administrator privileges.
+2. Zero Stars: Give a devastating zero-star feedback to the store.
+
+Feel free to also attempt other challenges from the list in the scoreboard.
