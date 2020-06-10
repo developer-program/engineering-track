@@ -120,7 +120,7 @@ Both of these instances can cause sensitive information to be exposed to third-p
 
 **More resources:**
 
-- https://www.howtogeek.com/434930/why-are-companies-still-storing-passwords-in-plain-text/
+- https://crackstation.net/hashing-security.htm
 - https://www.izooto.com/blog/understanding-http-https-protocols
 
 # 4. XML External Entities (XXE)
