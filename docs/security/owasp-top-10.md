@@ -8,6 +8,8 @@ The OWASP Top 10 document is globally recognised by developers as the **most eff
 
 Read more here: https://owasp.org/www-project-top-ten/
 
+***Note**: Throughout the notes there will be links to additional resources; you can read them in your own time. For resources that are important/beneficial to read during the session, I will prompt you and allocate 5-10 min for you to read them - these will be marked with 👀.*
+
 # 1. Injection
 
 ![little bobby tables](_media/little_bobby_tables.png)
@@ -47,9 +49,9 @@ To illustrate this, let's play a game.
 
 **More resources:**
 
+- 👀 https://www.oreilly.com/library/view/securing-node-applications/9781491982426/ch01.html
 - https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html
 - https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html
-- https://www.oreilly.com/library/view/securing-node-applications/9781491982426/ch01.html
 
 # 2. Broken Authentication
 
@@ -88,8 +90,7 @@ req.session.cookie.maxAge = hour
 
 - Weak passwords: https://github.com/danielmiessler/SecLists/tree/master/Passwords
 - https://cheatsheetseries.owasp.org/cheatsheets/Credential_Stuffing_Prevention_Cheat_Sheet.html
-- https://github.com/danielmiessler/SecLists
-- https://auth0.com/blog/when-ux-equals-keeping-or-losing-the-customer/
+- 👀 https://auth0.com/blog/when-ux-equals-keeping-or-losing-the-customer/
 
 # 3. Sensitive Data Exposure
 
@@ -229,7 +230,7 @@ Security misconfiguration is commonly a result of insecure default configuration
 
 **More resources:**
 
-- https://www.guardicore.com/2019/03/understanding-and-avoiding-security-misconfiguration/
+- 👀 https://www.guardicore.com/2019/03/understanding-and-avoiding-security-misconfiguration/
 
 # 7. Cross-Site Scripting XSS
 
@@ -306,7 +307,7 @@ When the serialised data is transmitted back to the server, the server will perf
 
 **More resources:**
 
-- https://owasp.org/www-project-proactive-controls/v3/en/c5-validate-inputs (we have seen multiple times that validating user input is a key method of prevention)
+- 👀 https://owasp.org/www-project-proactive-controls/v3/en/c5-validate-inputs (we have seen multiple times that validating user input is a key method of prevention)
 - https://cheatsheetseries.owasp.org/cheatsheets/Deserialization_Cheat_Sheet.html
 
 # 9. Using Components with Known Vulnerabilities
@@ -330,7 +331,7 @@ The vulnerability, which was scored as *critical*, was disclosed on March 7, and
 
 **More resources:**
 
-- The Unfortunate Reality of Insecure Libraries: https://cdn2.hubspot.net/hub/203759/file-1100864196-pdf/docs/Contrast_-_Insecure_Libraries_2014.pdf
+- 👀 The Unfortunate Reality of Insecure Libraries: https://cdn2.hubspot.net/hub/203759/file-1100864196-pdf/docs/Contrast_-_Insecure_Libraries_2014.pdf
 
 # 10. Insufficient Logging & Monitoring
 
