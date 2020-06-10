@@ -331,6 +331,28 @@ The vulnerability, which was scored as *critical*, was disclosed on March 7, and
 
 ![dependabot example PRs](_media/dependabot_prs.png)
 
+## Activity
+
+For your current projects, you can also quickly fix vulnerabilities this way:
+
+1. Run `npm audit` on your projects:
+
+![npm audit before fix](_media/npm_audit_before.png)
+
+For this example, we can see that there are **3239 vulnerabilities**: 3225 of low severity, 13 of moderate severity, and 1 of high severity.
+
+2. We can fix most of these by bulk updating the versions automatically, using `npm audit fix`:
+
+![npm audit before fix](_media/npm_audit_fix.png)
+
+3. `npm audit fix` may not be able to fix everything automatically - you may need to look into certain dependencies manually. Here, we can see that it fixed all but 1 low severity vulnerability:
+
+![npm audit before fix](_media/npm_audit_after.png)
+
+Sometimes, we might not even have to take action because the vulnerability in question is not relevant to us, e.g. the vulnerability is **only part of 1 feature of the dependency that we are not currently using** in our project.
+
+We can visit the link in **"More info"** to understand each vulnerability better and make our own judgements based on our current situation.
+
 **More resources:**
 
 - 👀 The Unfortunate Reality of Insecure Libraries: https://cdn2.hubspot.net/hub/203759/file-1100864196-pdf/docs/Contrast_-_Insecure_Libraries_2014.pdf
