@@ -325,9 +325,11 @@ The vulnerability, which was scored as *critical*, was disclosed on March 7, and
 ## Prevention
 
 - Continuously inventory the versions of both client-side and server-side components (e.g. frameworks, libraries) that you use, as well as their dependencies, using tools like [DependencyCheck](https://github.com/jeremylong/DependencyCheck).
-- Use a tool like [Dependabot](https://dependabot.com/) for automated dependency updates. It will look for outdated or insecure requirements, and open pull requests to update the offending dependency.
 - Remove unused dependencies, unnecessary features, components, files, and documentation.
 - Subscribe to email alerts for security vulnerabilities related to components you use.
+- Use a tool like [Dependabot](https://dependabot.com/) for automated dependency updates. It will look for outdated or insecure requirements, and open pull requests to update the offending dependency:
+
+![dependabot example PRs](_media/dependabot_prs.png)
 
 **More resources:**
 
