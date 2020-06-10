@@ -118,6 +118,10 @@ Both of these instances can cause sensitive information to be exposed to third-p
 - Get SSL certificate from [Let's Encrypt](https://letsencrypt.org/), to enable secure connections with HTTPS. This means that all communications between your browser and the website are encrypted.
 - Force SSL: force some or all pages to be visited over SSL, e.g. with [express-force-ssl](https://github.com/battlejj/express-force-ssl)
 
+## Quiz
+
+It's everybody's favourite time, it's quiz time: [( ͡° ͜ʖ ͡°)](https://forms.gle/y1n3GMj62sXr5Lsk7)
+
 **More resources:**
 
 - https://crackstation.net/hashing-security.htm
