@@ -203,6 +203,7 @@ Restrictions on what authenticated users are allowed to do are often not properl
 
 1. **Modifying parameters in URL**: A user, Bob, logs in and views his own account settings at `website.com/users/66/settings`. He modifies the URL to `website.com/users/45/settings`, and is **able to view the account settings of another user** with id 45. This violates user 45's privacy as sensitive information is revealed (e.g. email address, phone number), and worse still, may be tampered with.
 2. **Elevation of privilege**: Acting as a user without being logged in, or acting as an admin when logged in as a user.
+3. [Live demo](https://github.com/sabrina-s/broken-access-control-demo)
 
 ## Prevention
 
