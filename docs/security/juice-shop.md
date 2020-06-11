@@ -53,12 +53,11 @@ Next, **decide on who will be the first Driver**. The other person will be the N
 *^ Tutorial available in scoreboard.*
 
 **Injection:**
-1. Login Bender ^
-2. Login Jim ^
-3. Login Admin ^
+1. Login Admin ^
+2. Login Bender/Jim ^
 
 **Broken Authentication:**	
-1. Password Strength ^: Log in with the administrator's user credentials without previously changing them or applying SQL Injection.
+1. Password Strength ^: Log in with the administrator's user credentials *without previously changing them or applying SQL Injection*.
 
 **Sensitive Data Exposure:**
 1. Confidential Document: Access a confidential document.
@@ -75,10 +74,8 @@ Next, **decide on who will be the first Driver**. The other person will be the N
 **XSS:**
 1. DOM XSS ^: Perform a DOM XSS attack with ```<iframe src="javascript:alert(`xss`)">```
 1. Bonus Payload ^: Use the bonus payload ```<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/771984076&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>``` in the DOM XSS challenge
-1. Reflected XSS: Perform a reflected XSS attack with ```<iframe src="javascript:alert(`xss`)">```
-1. Client-side XSS Protection: Perform a persisted XSS attack with ```<iframe src="javascript:alert(`xss`)">``` bypassing a client-side security mechanism.
 
-**Improper Input Validation:** (optional)
+**Improper Input Validation:**
 1. Admin Registration: Register as a user with administrator privileges.
 2. Zero Stars: Give a devastating zero-star feedback to the store.
 
