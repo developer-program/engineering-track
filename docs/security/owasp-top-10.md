@@ -208,9 +208,13 @@ Restrictions on what authenticated users are allowed to do are often not properl
 ## Prevention
 
 - With the exception of public resources, **deny access by default**
-- **Add proper authorisation checks** to ensure that the currently logged in user has the right to be granted permissions to CRUD the data in question
+- **Add proper authorisation checks** to ensure that the currently logged in user has the right to be granted permissions to CRUD the data in question.
+    - **It is important to add checks not only on the front-end (e.g. conditional rendering of button to access restricted page), but the back-end as well.** An attacker can bypass the front-end or attempt access to the back-end directly.
 - **JWT tokens should be invalidated on the server** after logout
 - Add **automated functional tests** to check access control. The initial set up for the test may take a long time, but manual testing will take even more time in the long run and is prone to human error. Since the tests will be run regularly, any breach will be caught early.
+
+**More resources:**
+- 👀 Authentication vs Authorisation: https://medium.com/datadriveninvestor/authentication-vs-authorization-716fea914d55
 
 # 6. Security Misconfiguration
 
