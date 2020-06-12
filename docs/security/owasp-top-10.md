@@ -224,7 +224,18 @@ Security misconfiguration is commonly a result of insecure default configuration
 
 1. **Error handling reveals overly informative error messages to users.** For example, an attacker tries to log in with another user's email address but with the wrong password. An error message shows up: `Wrong password!`. This serves as confirmation to the attacker that this user account *does* exist in the system, and the attacker can continue trying to log in, e.g. through brute-force attack.
 1. **Unnecessary features are enabled or installed.** For example, the application may be trying to communicate with an external application/service that does not exist anymore. Attackers could mimic the non-existent application to establish a connection.
-1. Permissions are configured wrongly.
+1. **Permissions** are configured wrongly due to human error.
+1. **CORS** (Cross-Origin Resource Sharing) enables information sharing between different domains, but it can be configured wrongly.
+    - The default [CORS](https://www.npmjs.com/package/cors) configuration is:
+      ```
+      {
+        "origin": "*",
+        "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
+        "preflightContinue": false,
+        "optionsSuccessStatus": 204
+      }
+      ```
+      `origin` is set to a wildcard (`*`) by default, which means *any* domain can access the resources on your application.
 
 ## Prevention
 
@@ -232,10 +243,12 @@ Security misconfiguration is commonly a result of insecure default configuration
 - Display custom error page instead of displaying the stack trace to the user.
 - **Security hardening**. Remove all unnecessary features, components, services, pages, accounts, privileges, frameworks, etc. This will help reduce the application's surface of vulnerability. The fewer functions a system has, the more secure it is.
 - Have an automated process for setting up configurations, so that all environments can be configured identically with minimal effort.
+- Specify trusted domains to whitelist in the CORS `origin` configuration.
 
 **More resources:**
 
-- 👀 https://www.guardicore.com/2019/03/understanding-and-avoiding-security-misconfiguration/
+- https://www.guardicore.com/2019/03/understanding-and-avoiding-security-misconfiguration/
+- 👀 https://www.we45.com/blog/3-ways-to-exploit-misconfigured-cross-origin-resource-sharing-cors
 
 # 7. Cross-Site Scripting XSS
 
