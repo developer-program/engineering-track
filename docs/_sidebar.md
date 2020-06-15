@@ -90,3 +90,5 @@
 - **Kubernetes**
 
   - [Intro to Architecture](intro-k8s/intro-to-architecture.md)
+  - [About Kubernetes](intro-k8s/about-kubernetes.md)
+  - [Pods](intro-k8s/pods.md)
