@@ -387,6 +387,10 @@ Insufficient logging and monitoring, coupled with missing or ineffective integra
 1. Appropriate alerting thresholds and response escalation processes are not in place or effective.
 1. Penetration testing and scans by Vulnerability Scanning Tools do not trigger alerts.
 
+## Activity
+
+1. [Logging and monitoring](https://www.hacksplaining.com/exercises/logging-and-monitoring)
+
 ## Prevention
 
 - Ensure all login, access control failures, and server-side input validation failures can be **logged with sufficient user context to identify suspicious or malicious accounts**, and held for sufficient time to allow delayed forensic analysis.
