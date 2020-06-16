@@ -39,7 +39,7 @@ NAME                                            DESIRED   CURRENT   READY   AGE
 replicaset.apps/hello-world-deploy-5fbbbc75cb   1         1         0       7s
 ```
 
-### Workflow of deployment
+## Workflow of deployment
 
 ![architecture](_media/k8s_architectre.png)
 
@@ -50,7 +50,7 @@ replicaset.apps/hello-world-deploy-5fbbbc75cb   1         1         0       7s
 5. Respective Kublet talks to `api-server` to check for things to do, `api-server` then tell `kublet` about new pods that needs to be created.
 6. Kublet then create the Pods and set the status in `etcd` of the pod to `Running`
 
-### Scaling deploymnet
+## Scaling deploymnet
 
 One reason to use k8s is for scaling container. we can specify how many container we want to scale using `kubectl scale --replicas=4 <deployment-object>`. This changes the
 
@@ -75,7 +75,7 @@ NAME                                DESIRED   CURRENT   READY   AGE
 replicaset.apps/my-dep-644b5f6489   4         4         4       35s
 ```
 
-### Deployment template
+## Deployment template
 
 Create a `k8s/todolist-deployment.yaml` file
 
@@ -121,7 +121,7 @@ Push to dockerhub
 docker push xxx/todo-list-api
 ```
 
-### Roll Out change
+## Roll Out change
 
 ```bash
 kubectl rollout restart deployment todo-list-deployment
@@ -147,7 +147,7 @@ replicaset.apps/todo-list-deployment-788f65d46f   0         0         0       42
 replicaset.apps/todo-list-deployment-7c49dfb884   3         3         3       63s
 ```
 
-### Describe deployment
+## Describe deployment
 
 Looking at logs
 
@@ -197,14 +197,14 @@ Events:
   Normal  ScalingReplicaSet  4m37s  deployment-controller  Scaled down replica set todo-list-deployment-788f65d46f to 0
 ```
 
-### Rolling back a version
+## Rolling back a version
 
 ```bash
 ❯ kubectl rollout undo deployment.apps/todo-list-deployment
 deployment.apps/todo-list-deployment rolled back
 ```
 
-### Scaling
+## Scaling
 
 ```bash
 ❯ kubectl scale deployment.apps/todo-list-deployment --replicas=10
@@ -226,7 +226,7 @@ todo-list-deployment-788f65d46f-npzks   0/1     ContainerCreating   0          2
 todo-list-deployment-788f65d46f-vx729   0/1     ContainerCreating   0          26s
 ```
 
-### Cleanup
+## Cleanup
 
 ```bash
 ❯ kubectl delete -f ./k8s/todolist-deployment.yaml
