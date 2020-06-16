@@ -93,3 +93,5 @@
   - [About Kubernetes](intro-k8s/about-kubernetes.md)
   - [Pods](intro-k8s/pods.md)
   - [Deployment](intro-k8s/deployment.md)
+  - [NodePort](intro-k8s/nodePort-service.md)
+  - [ClusterIP](intro-k8s/cluterIp-service.md)
