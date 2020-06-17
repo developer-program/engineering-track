@@ -8,7 +8,7 @@ The OWASP Top 10 document is globally recognised by developers as the **most eff
 
 Read more here: https://owasp.org/www-project-top-ten/
 
-***Note**: Throughout the notes there will be links to additional resources; you can read them in your own time. For resources that are important/beneficial to read during the session, I will prompt you and allocate 5-10 min for you to read them - these will be marked with 👀.*
+***Note***: *Throughout the notes there will be links to additional resources; you can read them in your own time. For resources that are important/beneficial to read during the session, I will prompt you and allocate 5-10 min for you to read them - these will be marked with* 👀
 
 # 1. Injection
 
