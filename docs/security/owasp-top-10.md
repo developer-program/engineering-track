@@ -135,7 +135,7 @@ This can lead to disclosure of confidential data, internal port scanning, [Serve
 
 ## Examples
 
-1. **Denial of Service** attack: XML Bomb, e.g. [Billion laughs attack](https://en.wikipedia.org/wiki/Billion_laughs_attack). It works by flooding the XML parser with a large document, which causes the application to consume all of its available memory until the process crashes: 
+1. **Denial of Service** attack: XML Bomb, e.g. [Billion laughs attack](https://en.wikipedia.org/wiki/Billion_laughs_attack). It works by flooding the XML parser with a large document, which causes the application to consume all of its available memory until the process crashes: [[1]](https://www.youtube.com/watch?v=WQUiub2hc0c)
 ``` xml
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE lolz [
