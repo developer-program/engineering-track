@@ -25,7 +25,7 @@ In German there is a dedicated word for dump, i.e. a store that sells lousy ware
 Next, **pick 1 person** to do the following steps:
 
 1. Log in to your Heroku account [here](https://www.heroku.com/).
-1. Click [here](https://heroku.com/deploy) to deploy an instance of Juice Shop.
+1. Click on the ["Deploy to Heroku" button on this page](https://github.com/bkimminich/juice-shop) to deploy an instance of Juice Shop.
 1. Share the link with your pair, so that both of you can work on the same Juice Shop.
 1. On the first load, there will be a modal welcoming you to Juice Shop. Click on `Help getting started`.
 
