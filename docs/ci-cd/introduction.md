@@ -1,6 +1,6 @@
 # Introduction to Bamboo
 
-## What is Bemaboo Ci
+## What is Bamboo Ci
 
 Bamboo is a Continous Integration(CI) server that automates processes.
 This means that Bamboo CI can run code quality checks, automate long and time consuming build and send notification if something fails.
