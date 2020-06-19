@@ -95,3 +95,4 @@
   - [Deployment](intro-k8s/deployment.md)
   - [NodePort](intro-k8s/nodePort-service.md)
   - [ClusterIP](intro-k8s/cluterIp-service.md)
+  - [Ingress](intro-k8s/ingress.md)
