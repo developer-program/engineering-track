@@ -77,8 +77,7 @@
 
 - **Project**
 
-  <!-- - [Project Definition](agile/project-fly.md) -->
-
+  - [Project Definition](agile/project-fly.md)
   - [Pairing Matrix](agile/pairing-matrix.md)
 
 - **Security**

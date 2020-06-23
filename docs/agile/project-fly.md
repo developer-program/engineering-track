@@ -6,6 +6,10 @@ Project fly is a 2 weeks project to simulate an agile development project. Train
 
 Project fly is a revolutionary all in one flight booking platform for travellers, check-in officers and airlines staff.
 
+## Designs
+
+A famous designer have come up with quick designs for reference. You can view the exiting [designs here](https://www.figma.com/proto/kakrMqMBZ4PZzPRIP05DSH/Fly?scaling=min-zoom&node-id=45%3A0)
+
 ### Travllers
 
 For Traveller, using our application allows them to search for flights across different airlines based on the desired departure, arrival time and price. They can create a personal account and view upcoming flights, flight history and transaction.
@@ -22,8 +26,8 @@ To help Check-in Officers find passengers details, they can view all booking det
 
 ## Project Owners
 
-- Mabel Lee (Travellers experience and airport check-in Officers)
-- Elson Lim (Airline staff)
+- Trainer 1 (Travellers experience and airport check-in Officers)
+- Trainer 2 (Airline staff)
 
 ## Priority (top to bottom)
 
